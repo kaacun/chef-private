@@ -1,5 +1,8 @@
 {
   "run_list":[
-    "vim"
+    "git",
+    "vim",
+    "vim::neobundle",
+    "vim::nerdtree"
   ]
 }

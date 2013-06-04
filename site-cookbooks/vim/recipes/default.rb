@@ -34,6 +34,6 @@ bash "install vim" do
     echo "alias vim='/usr/local/vim-7.3/bin/vim'" >> /root/.bashrc
     source /root/.bashrc
   EOC
-  creates "/tmp/ftp://ftp.vim.org/pub/vim/extra/vim-7.2-lang.tar.gz"
+  creates "/usr/local/vim-7.3"
 end
 
