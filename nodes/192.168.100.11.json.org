@@ -1,0 +1,11 @@
+{
+  "run_list":[
+    "yum::epel",
+    "yum::remi",
+    "yum::repoforge",
+    "git",
+    "vim",
+    "vim::neobundle",
+    "vim::nerdtree"
+  ]
+}

@@ -18,22 +18,20 @@ package "ncurses-devel" do
   action :install
 end
 
+package "python-devel" do
+  action :install
+end
+
 bash "install vim" do
   cwd "/tmp"
   code <<-EOC
     wget ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
-    wget ftp://ftp.jp.vim.org/pub/vim/extra/vim-7.2-extra.tar.gz
-    wget ftp://ftp.vim.org/pub/vim/extra/vim-7.2-lang.tar.gz
-    tar jxvf vim-7.3.tar.bz2
-    tar zxvf vim-7.2-extra.tar.gz
-    tar zxvf vim-7.2-lang.tar.gz
-    mv vim72 vim73/
-    cd vim73/src
-    ./configure --enable-multibyte --with-features=huge --disable-selinux --prefix='/usr/local/vim-7.3'
+    tar -xf vim-7.3.tar.bz2
+    cd vim73
+    ./configure --with-features=huge --enable-multibyte --enable-pythoninterp --enable-gpm --enable-cscope --enable-fontset
+    make
     make install
-    echo "alias vim='/usr/local/vim-7.3/bin/vim'" >> /root/.bashrc
-    source /root/.bashrc
   EOC
-  creates "/usr/local/vim-7.3"
+  creates "/usr/local/bin/vim"
 end
 
