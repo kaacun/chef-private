@@ -22,14 +22,14 @@ end
 bash "install tmux" do
   cwd "/tmp"
   code <<-EOC
-    wget http://sourceforge.net/projects/tmux/files/tmux/tmux-1.8/tmux-1.8.tar.gz/download?use_mirror=jaist
-    tar xvzf tmux-1.8.tar.gz
-    cd tmux-1.8
+    wget -O tmux-1.9a.tar.gz http://sourceforge.net/projects/tmux/files/tmux/tmux-1.9/tmux-1.9a.tar.gz/download?use_mirror=jaist
+    tar xvzf tmux-1.9a.tar.gz
+    cd tmux-1.9a
     ./configure
     make
     make install
   EOC
-  creates "/tmp/tmux-1.8"
+  creates "/tmp/tmux-1.9a"
 end
 
 bash "setup tmux" do
