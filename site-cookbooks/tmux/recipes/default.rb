@@ -39,3 +39,8 @@ bash "setup tmux" do
   EOC
   not_if "grep tmux /root/.bashrc"
 end
+
+cookbook_file "/root/tmux-session.sh" do
+end
+cookbook_file "/etc/ld.so.conf.d/libevent.conf" do
+end

@@ -124,6 +124,11 @@ map <silent> [Tag]p :tabprevious<CR>
 " " tp 前のタブ
 """ vim tab end """
 
+" Edit file by tabedit.
+"let g:vimfiler_edit_action = 'tabopen'
+let g:vimfiler_as_default_explorer=1
+nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
+
 " phpunit quickrun
 augroup QuickRunPHPUnit
   autocmd!
