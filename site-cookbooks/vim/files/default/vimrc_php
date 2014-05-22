@@ -127,7 +127,7 @@ map <silent> [Tag]p :tabprevious<CR>
 " Edit file by tabedit.
 "let g:vimfiler_edit_action = 'tabopen'
 let g:vimfiler_as_default_explorer=1
-nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
+nnoremap <silent> <Leader>f :<C-u>VimFilerBufferDir -quit<CR>
 
 " phpunit quickrun
 augroup QuickRunPHPUnit
