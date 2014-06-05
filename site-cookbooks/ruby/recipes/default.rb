@@ -1,0 +1,21 @@
+#
+# Cookbook Name:: ruby
+# Recipe:: default
+#
+# Copyright 2013, YOUR_COMPANY_NAME
+#
+# All rights reserved - Do Not Redistribute
+#
+bash "install ruby" do
+#  only_if 'which ruby'
+  creates "/usr/local/bin/ruby"
+  code <<-EOC
+    cd /usr/local/src
+    curl -O ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p429.tar.gz
+    tar zxvf ruby-1.9.3-p429.tar.gz
+    cd ruby-1.9.3-p429
+    /bin/sh ./configure
+    /usr/bin/make
+    /usr/bin/make install
+  EOC
+end
