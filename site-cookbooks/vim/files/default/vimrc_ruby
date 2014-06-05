@@ -1,42 +1,34 @@
 set nocompatible               " be iMproved
 filetype off
 
+" powerline setting
+let g:alpaca_powertabline_enable=1
+let g:Powerline_symbols='fancy'
+set t_Co=256
+let g:Powerline_symbols='compatible'
+set guifont=Ricty\ Regular\ for\ Powerline:h14
+set tabline=%!MakeAlpacaTabLine()
+set laststatus=2 " Always display the statusline in all windows
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
+" neobundle
+let g:neobundle_default_git_protocol='https'
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#rc(expand('~/.bundle'))
 endif
-" originalrepos on github
+
+" plugins
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'VimClojure'
+NeoBundle 'Shougo/vimproc', { 'build': { 'unix': 'make -f make_unix.mak' }}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'scrooloose/syntastic'
-""NeoBundle 'https://bitbucket.org/kovisoft/slimv'
-
 NeoBundle 'taichouchou2/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-
-filetype plugin indent on     " required!
-filetype indent on
-syntax on
-
-" neobundle"{{{
-" コマンドを伴うやつの遅延読み込み
-"bundle"{{{
-" その他 {{{
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundleLazy 'taichouchou2/vim-endwise.git', {
-      \ 'autoload' : {
-      \   'insert' : 1,
-      \ } }
-" }}}
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'taku-o/vim-toggle'
 
 " 補完 {{{
 NeoBundleLazy 'Shougo/neocomplcache', {
@@ -125,3 +117,93 @@ NeoBundleLazy 'ruby-matchit', {
 
 " }}}
 "}}}
+
+
+" standard setting
+filetype plugin indent on     " required!
+filetype indent on
+syntax on
+set encoding=utf-8
+set fileencodings=utf-8
+" search
+set incsearch
+set ignorecase
+" edit
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set autoindent
+
+" enable neocompletecache
+let g:neocomplcache_enable_at_startup=1
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+
+""" vim tab start """
+" Anywhere SID.
+function! s:SID_PREFIX()
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+  endfunction
+
+" Set tabline.
+function! s:my_tabline()  "{{{
+  let s = ''
+  for i in range(1, tabpagenr('$'))
+    let bufnrs = tabpagebuflist(i)
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+    let no = i  " display 0-origin tabpagenr.
+    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+    let title = fnamemodify(bufname(bufnr), ':t')
+    let title = '[' . title . ']'
+    let s .= '%'.i.'T'
+    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+    let s .= no . ':' . title
+    let s .= mod
+    let s .= '%#TabLineFill# '
+  endfor
+  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  return s
+endfunction "}}}
+let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+set showtabline=2 " 常にタブラインを表示
+
+" The prefix key.
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tc 新しいタブを一番右に作る
+map <silent> [Tag]x :tabclose<CR>
+" " tx タブを閉じる
+map <silent> [Tag]n :tabnext<CR>
+" " tn 次のタブ
+map <silent> [Tag]p :tabprevious<CR>
+" " tp 前のタブ
+""" vim tab end """
+
+" Edit file by tabedit.
+"let g:vimfiler_edit_action = 'tabopen'
+let g:vimfiler_as_default_explorer=1
+nnoremap <silent> <Leader>f :<C-u>VimFilerBufferDir -quit<CR>
