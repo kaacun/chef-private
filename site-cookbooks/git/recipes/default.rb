@@ -12,3 +12,6 @@ end
 
 cookbook_file "/root/.gitconfig" do
 end
+
+cookbook_file "/root/.gitignore" do
+end
