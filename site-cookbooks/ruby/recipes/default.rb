@@ -11,9 +11,9 @@ bash "install ruby" do
   creates "/usr/local/bin/ruby"
   code <<-EOC
     cd /usr/local/src
-    curl -O ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p429.tar.gz
-    tar zxvf ruby-1.9.3-p429.tar.gz
-    cd ruby-1.9.3-p429
+    curl -O http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz
+    tar zxvf ruby-2.1.2.tar.gz
+    cd ruby-2.1.2
     /bin/sh ./configure
     /usr/bin/make
     /usr/bin/make install
