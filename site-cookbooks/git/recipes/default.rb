@@ -9,3 +9,6 @@
 package "git" do
   action :install
 end
+
+cookbook_file "/root/.gitconfig" do
+end

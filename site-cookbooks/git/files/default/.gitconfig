@@ -1,0 +1,12 @@
+[user]
+	email = k_ohhara@corp.allabout.co.jp
+	name = k_ohhara
+[core]
+    excludesfile = ~/.gitignore
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    cm = commit -m
+[color]
+    ui = auto
