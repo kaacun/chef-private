@@ -10,6 +10,8 @@ set guifont=Ricty\ Regular\ for\ Powerline:h14
 set tabline=%!MakeAlpacaTabLine()
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set list
+set listchars=tab:^\ ,trail:~
 
 " neobundle
 let g:neobundle_default_git_protocol='https'
