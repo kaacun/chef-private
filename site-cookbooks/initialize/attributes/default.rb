@@ -41,3 +41,5 @@ default['initialize']['ntp']['server'][1] = 'ntp2.jst.mfeed.ad.jp'
 # DNS
 default['initialize']['dns']['server'][0] = '8.8.8.8'
 default['initialize']['dns']['server'][1] = '8.8.4.4'
+
+default['initialize']['prompt'] = '\\[\\033[1;32m\\][\\t][\\u@\\h \\w]\\\\$\\[\\033[0m\\] '

@@ -52,8 +52,11 @@ cookbook_file "/etc/sysconfig/i18n" do
 end
 
 log '## setting ntp ####################'
+package 'ntp' do
+  action :install
+end
 service "ntpd" do
-    action [ :enable, :start ]
+  action [ :enable, :start ]
 end
 template "/etc/ntp.conf" do
   source "etc/ntp.conf.erb"
