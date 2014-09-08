@@ -1,0 +1,16 @@
+<VirtualHost *:80>
+  ServerName <%= @settings['ServerName'] %>
+  DocumentRoot /app/<%= @app_name %>/public
+
+  ErrorLog "|/usr/sbin/rotatelogs /AccessLog.local/<%= @app_name %>/<%= @settings['ServerName'] %>_error_log.%Y%m%d 86400 540"
+  CustomLog "|/usr/sbin/rotatelogs /AccessLog.local/<%= @app_name %>/<%= @settings['ServerName'] %>-access_log.%Y%m%d 86400 540" aacombined
+
+  <Directory /app/<%= @app_name %>/public>
+    <IfModule mod_rewrite.c>
+      Options -MultiViews
+      RewriteEngine On
+      RewriteCond %{REQUEST_FILENAME} !-f
+      RewriteRule ^ index.php [L]
+    </IfModule>
+  </Directory>
+</VirtualHost>

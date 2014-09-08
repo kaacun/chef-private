@@ -1,0 +1,16 @@
+<Directory "/var/www/healthcheck">
+    Options Includes
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1
+    Allow from 10.0.0.0/8
+    Allow from 192.168.0.0/16
+    Allow from 172.16.0.0/16
+</Directory>
+<VirtualHost *:80>
+    ServerAdmin system+healthcheck@corp.allabout.co.jp
+    DocumentRoot /var/www/healthcheck
+    ServerName healthcheck.allabout.co.jp
+    ErrorLog  /AccessLog.local/healthcheck/healthcheck.allabout.co.jp-error_log
+    CustomLog /AccessLog.local/healthcheck/healthcheck.allabout.co.jp_log aacombined
+</VirtualHost>

@@ -1,0 +1,37 @@
+<VirtualHost *:443>
+  ServerName api.cafesnap.me
+  DocumentRoot /app/cafeapp-api/public
+
+  ErrorLog "|/usr/sbin/rotatelogs /AccessLog.local/cafeapp-api/ssl_error_log.%Y%m%d 86400 540"
+  CustomLog "|/usr/sbin/rotatelogs /AccessLog.local/cafeapp-api/ssl-access_log.%Y%m%d 86400 540" aacombined
+
+  SSLEngine on
+  SSLCertificateFile /var/tmp/ssl/B0910014.cer
+  SSLCertificateChainFile /var/tmp/ssl/pfwsr2ca.cer
+  SSLCertificateKeyFile /var/tmp/ssl/api.cafesnap.me.key
+
+  <Directory /app/cafeapp-api/public>
+    <IfModule mod_rewrite.c>
+      Options -MultiViews
+      RewriteEngine On
+      RewriteCond %{REQUEST_FILENAME} !-f
+      RewriteRule ^ index.php [L]
+    </IfModule>
+  </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+  ServerName api.cafesnap.me
+  DocumentRoot /app/cafeapp-api/public
+
+  ErrorLog "|/usr/sbin/rotatelogs /AccessLog.local/cafeapp-api/api.cafesnap.me_error_log.%Y%m%d 86400 540"
+  CustomLog "|/usr/sbin/rotatelogs /AccessLog.local/cafeapp-api/api.cafesnap.me-access_log.%Y%m%d 86400 540" aacombined
+
+  <Directory /app/cafeapp-api/public>
+    <IfModule mod_rewrite.c>
+      Options -MultiViews
+      RewriteEngine On
+      RewriteCond %{REQUEST_FILENAME} !-f
+      RewriteRule ^ index.php [L]
+    </IfModule>
+  </Directory>
+</VirtualHost>
