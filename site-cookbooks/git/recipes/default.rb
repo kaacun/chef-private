@@ -10,10 +10,10 @@ package "git" do
   action :install
 end
 
-=begin
 template "/root/.gitconfig" do
+  source "root/gitconfig"
 end
 
 template "/root/.gitignore" do
+  source "root/gitignore"
 end
-=end

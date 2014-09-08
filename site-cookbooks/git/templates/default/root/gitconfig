@@ -1,6 +1,6 @@
 [user]
-    email = <%= default['git']['config']['email'] %>
-    name = <%= default['git']['config']['name'] %>
+    email = <%= node['git']['config']['email'] %>
+    name = <%= node['git']['config']['name'] %>
 [core]
     excludesfile = ~/.gitignore
 [alias]
