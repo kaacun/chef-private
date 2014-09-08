@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# sumapita-agent Startup script for unicorn.
+#
+# chkconfig: - 86 15
+# description: sumapita-agent on unicorn start/stop script.
+
+. /etc/rc.d/init.d/functions
+
+APP_NAME=sumapita-admin
+APP_ROOT="/app/$APP_NAME/production/current"
+CONFIGS="$APP_ROOT/config/unicorn.rb"
+PID="/var/run/unicorn/unicorn_${APP_NAME}.pid"
+ENV=production
+
+UNICORN_OPTS="-D -E $ENV -c $CONFIGS -p 13002"
+
+old_pid="$PID.oldbin"
+
+export PATH=/usr/local/bin:$PATH
+
+cd $APP_ROOT || exit 1
+
+sig(){
+  test -s "$PID" && kill -$1 `cat $PID`
+}
+
+oldsig(){
+  test -s $old_pid && kill -$1 `cat $old_pid`
+}
+
+case $1 in
+start)
+  sig 0 && echo >&2 "Already running" && exit 0
+  cd $APP_ROOT ; bundle exec unicorn_rails $UNICORN_OPTS
+  ;;
+stop)
+  sig QUIT && exit 0
+  echo >&2 "Not running"
+  ;;
+force-stop)
+  sig TERM && exit 0
+  echo >&2 "Not running."
+  ;;
+restart|reload)
+  sig HUP && echo reloaded OK && exit 0
+  echo >&2 "Couldn't reload, starting instead"
+  bundle exec unicorn_rails $UNICORN_OPTS
+  ;;
+upgrade)
+  sig USR2 && exit 0
+  echo >&2 "Couldn't upgrade, starting instead"
+  bundle exec unicorn_rails $UNICORN_OPTS
+  ;;
+rotate)
+  sig USR1 && echo rotated logs OK && exit 0
+  echo >&2 "Couldn't rotate logs" && exit 1
+  ;;
+*)
+  echo >&2 "Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
+  exit 1
+  ;;
+esac
