@@ -10,8 +10,10 @@ package "git" do
   action :install
 end
 
-cookbook_file "/root/.gitconfig" do
+=begin
+template "/root/.gitconfig" do
 end
 
-cookbook_file "/root/.gitignore" do
+template "/root/.gitignore" do
 end
+=end

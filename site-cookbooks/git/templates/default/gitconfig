@@ -1,6 +1,6 @@
 [user]
-	email = k_ohhara@corp.allabout.co.jp
-	name = k_ohhara
+    email = <%= default['git']['config']['email'] %>
+    name = <%= default['git']['config']['name'] %>
 [core]
     excludesfile = ~/.gitignore
 [alias]
