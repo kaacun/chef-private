@@ -1,6 +1,0 @@
-{
-  "run_list":[
-    "vim::neobundle",
-    "vim::nerdtree"
-  ]
-}
