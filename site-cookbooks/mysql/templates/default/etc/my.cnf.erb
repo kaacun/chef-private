@@ -1,0 +1,70 @@
+# For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html
+
+[mysqld]
+#
+# Remove leading # and set to the amount of RAM for the most important data
+# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
+# innodb_buffer_pool_size = 128M
+#
+# Remove leading # to turn on a very important data integrity option: logging
+# changes to the binary log between backups.
+# log_bin
+#
+# Remove leading # to set options mainly useful for reporting servers.
+# The server defaults are faster for transactions and fast SELECTs.
+# Adjust sizes as needed, experiment to find the optimal values.
+# join_buffer_size = 128M
+# sort_buffer_size = 2M
+# read_rnd_buffer_size = 2M
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+
+# Recommended in standard MySQL setup
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES 
+
+character-set-server = utf8
+skip-character-set-client-handshake
+
+query_cache_size=64M
+query_cache_limit=2M
+tmp_table_size=32M
+max_heap_table_size=16M
+thread_cache_size=100
+#table_cache=128
+max_allowed_packet=2MB
+
+#myisamの設定
+key_buffer_size = 32M
+read_buffer_size = 2M
+read_rnd_buffer_size = 16M
+bulk_insert_buffer_size = 64M
+myisam_sort_buffer_size = 128M
+myisam_max_sort_file_size = 1G
+#myisam_max_extra_sort_file_size = 1G
+myisam_repair_threads = 1
+myisam_recover
+
+#inodbの設定
+#innodb_data_home_dir =/ipdata
+innodb_data_file_path = ibdata1:1000M;ibdata2:1000M:autoextend
+innodb_buffer_pool_size=1G
+innodb_additional_mem_pool_size=20M
+#innodb_log_group_home_dir = /iblogs
+innodb_log_files_in_group = 2
+innodb_log_file_size=250M
+innodb_log_buffer_size=8M
+innodb_flush_log_at_trx_commit=1
+innodb_lock_wait_timeout=50
+innodb_file_per_table
+
+wait_timeout=150
+skip-name-resolve
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+default-character-set = utf8
