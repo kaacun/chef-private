@@ -1,0 +1,97 @@
+I, [2014-09-08T20:07:19.778741 #1828]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-09-08T20:07:20.262735 #1828]  INFO -- Kitchen: Usage: docker [OPTIONS] COMMAND [arg...]
+I, [2014-09-08T20:07:20.262735 #1828]  INFO -- Kitchen:  -H=[unix:///var/run/docker.sock]: tcp://host:port to bind/connect to or unix://path/to/socket to use
+I, [2014-09-08T20:07:20.262735 #1828]  INFO -- Kitchen: 
+I, [2014-09-08T20:07:20.262735 #1828]  INFO -- Kitchen: A self-sufficient runtime for linux containers.
+I, [2014-09-08T20:07:20.262735 #1828]  INFO -- Kitchen: 
+I, [2014-09-08T20:07:20.262735 #1828]  INFO -- Kitchen: Commands:
+I, [2014-09-08T20:07:20.262735 #1828]  INFO -- Kitchen:     attach    Attach to a running container
+I, [2014-09-08T20:07:20.262785 #1828]  INFO -- Kitchen:     build     Build an image from a Dockerfile
+I, [2014-09-08T20:07:20.262822 #1828]  INFO -- Kitchen:     commit    Create a new image from a container's changes
+I, [2014-09-08T20:07:20.262849 #1828]  INFO -- Kitchen:     cp        Copy files/folders from a container's filesystem to the host path
+I, [2014-09-08T20:07:20.262873 #1828]  INFO -- Kitchen:     diff      Inspect changes on a container's filesystem
+I, [2014-09-08T20:07:20.262898 #1828]  INFO -- Kitchen:     events    Get real time events from the server
+I, [2014-09-08T20:07:20.262922 #1828]  INFO -- Kitchen:     export    Stream the contents of a container as a tar archive
+I, [2014-09-08T20:07:20.262956 #1828]  INFO -- Kitchen:     history   Show the history of an image
+I, [2014-09-08T20:07:20.263002 #1828]  INFO -- Kitchen:     images    List images
+I, [2014-09-08T20:07:20.263028 #1828]  INFO -- Kitchen:     import    Create a new filesystem image from the contents of a tarball
+I, [2014-09-08T20:07:20.263052 #1828]  INFO -- Kitchen:     info      Display system-wide information
+I, [2014-09-08T20:07:20.263077 #1828]  INFO -- Kitchen:     inspect   Return low-level information on a container
+I, [2014-09-08T20:07:20.263100 #1828]  INFO -- Kitchen:     kill      Kill a running container
+I, [2014-09-08T20:07:20.263124 #1828]  INFO -- Kitchen:     load      Load an image from a tar archive
+I, [2014-09-08T20:07:20.263148 #1828]  INFO -- Kitchen:     login     Register or log in to the Docker registry server
+I, [2014-09-08T20:07:20.263171 #1828]  INFO -- Kitchen:     logs      Fetch the logs of a container
+I, [2014-09-08T20:07:20.263195 #1828]  INFO -- Kitchen:     port      Lookup the public-facing port that is NAT-ed to PRIVATE_PORT
+I, [2014-09-08T20:07:20.263218 #1828]  INFO -- Kitchen:     pause     Pause all processes within a container
+I, [2014-09-08T20:07:20.263242 #1828]  INFO -- Kitchen:     ps        List containers
+I, [2014-09-08T20:07:20.263596 #1828]  INFO -- Kitchen:     pull      Pull an image or a repository from a Docker registry server
+I, [2014-09-08T20:07:20.263660 #1828]  INFO -- Kitchen:     push      Push an image or a repository to a Docker registry server
+I, [2014-09-08T20:07:20.263719 #1828]  INFO -- Kitchen:     restart   Restart a running container
+I, [2014-09-08T20:07:20.263775 #1828]  INFO -- Kitchen:     rm        Remove one or more containers
+I, [2014-09-08T20:07:20.263829 #1828]  INFO -- Kitchen:     rmi       Remove one or more images
+I, [2014-09-08T20:07:20.263879 #1828]  INFO -- Kitchen:     run       Run a command in a new container
+I, [2014-09-08T20:07:20.263928 #1828]  INFO -- Kitchen:     save      Save an image to a tar archive
+I, [2014-09-08T20:07:20.263975 #1828]  INFO -- Kitchen:     search    Search for an image on the Docker Hub
+I, [2014-09-08T20:07:20.264023 #1828]  INFO -- Kitchen:     start     Start a stopped container
+I, [2014-09-08T20:07:20.264068 #1828]  INFO -- Kitchen:     stop      Stop a running container
+I, [2014-09-08T20:07:20.264111 #1828]  INFO -- Kitchen:     tag       Tag an image into a repository
+I, [2014-09-08T20:07:20.264152 #1828]  INFO -- Kitchen:     top       Lookup the running processes of a container
+I, [2014-09-08T20:07:20.264191 #1828]  INFO -- Kitchen:     unpause   Unpause a paused container
+I, [2014-09-08T20:07:20.264282 #1828]  INFO -- Kitchen:     version   Show the Docker version information
+I, [2014-09-08T20:07:20.265662 #1828]  INFO -- Kitchen:     wait      Block until a container stops, then print its exit code
+I, [2014-09-08T20:07:20.285183 #1828]  INFO -- Kitchen: -----> Cleaning up any prior instances of <default-centos-65>
+I, [2014-09-08T20:07:20.285462 #1828]  INFO -- Kitchen: -----> Destroying <default-centos-65>...
+I, [2014-09-08T20:07:20.335419 #1828]  INFO -- Kitchen: -----> Testing <default-centos-65>
+I, [2014-09-08T20:07:20.335568 #1828]  INFO -- Kitchen: -----> Creating <default-centos-65>...
+I, [2014-09-08T20:07:21.818541 #1828]  INFO -- Kitchen: -----> Converging <default-centos-65>...
+E, [2014-09-08T20:07:21.891887 #1828] ERROR -- Kitchen: Converge failed on instance <default-centos-65>.
+I, [2014-09-08T20:07:25.899593 #1965]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-09-08T20:07:25.934521 #1965]  INFO -- Kitchen: Usage: docker [OPTIONS] COMMAND [arg...]
+I, [2014-09-08T20:07:25.934676 #1965]  INFO -- Kitchen:  -H=[unix:///var/run/docker.sock]: tcp://host:port to bind/connect to or unix://path/to/socket to use
+I, [2014-09-08T20:07:25.934711 #1965]  INFO -- Kitchen: 
+I, [2014-09-08T20:07:25.934859 #1965]  INFO -- Kitchen: A self-sufficient runtime for linux containers.
+I, [2014-09-08T20:07:25.934957 #1965]  INFO -- Kitchen: 
+I, [2014-09-08T20:07:25.935041 #1965]  INFO -- Kitchen: Commands:
+I, [2014-09-08T20:07:25.935119 #1965]  INFO -- Kitchen:     attach    Attach to a running container
+I, [2014-09-08T20:07:25.935197 #1965]  INFO -- Kitchen:     build     Build an image from a Dockerfile
+I, [2014-09-08T20:07:25.935269 #1965]  INFO -- Kitchen:     commit    Create a new image from a container's changes
+I, [2014-09-08T20:07:25.935324 #1965]  INFO -- Kitchen:     cp        Copy files/folders from a container's filesystem to the host path
+I, [2014-09-08T20:07:25.935367 #1965]  INFO -- Kitchen:     diff      Inspect changes on a container's filesystem
+I, [2014-09-08T20:07:25.935395 #1965]  INFO -- Kitchen:     events    Get real time events from the server
+I, [2014-09-08T20:07:25.935421 #1965]  INFO -- Kitchen:     export    Stream the contents of a container as a tar archive
+I, [2014-09-08T20:07:25.935449 #1965]  INFO -- Kitchen:     history   Show the history of an image
+I, [2014-09-08T20:07:25.935496 #1965]  INFO -- Kitchen:     images    List images
+I, [2014-09-08T20:07:25.935548 #1965]  INFO -- Kitchen:     import    Create a new filesystem image from the contents of a tarball
+I, [2014-09-08T20:07:25.935579 #1965]  INFO -- Kitchen:     info      Display system-wide information
+I, [2014-09-08T20:07:25.935606 #1965]  INFO -- Kitchen:     inspect   Return low-level information on a container
+I, [2014-09-08T20:07:25.935631 #1965]  INFO -- Kitchen:     kill      Kill a running container
+I, [2014-09-08T20:07:25.935657 #1965]  INFO -- Kitchen:     load      Load an image from a tar archive
+I, [2014-09-08T20:07:25.935683 #1965]  INFO -- Kitchen:     login     Register or log in to the Docker registry server
+I, [2014-09-08T20:07:25.935708 #1965]  INFO -- Kitchen:     logs      Fetch the logs of a container
+I, [2014-09-08T20:07:25.935734 #1965]  INFO -- Kitchen:     port      Lookup the public-facing port that is NAT-ed to PRIVATE_PORT
+I, [2014-09-08T20:07:25.935759 #1965]  INFO -- Kitchen:     pause     Pause all processes within a container
+I, [2014-09-08T20:07:25.935785 #1965]  INFO -- Kitchen:     ps        List containers
+I, [2014-09-08T20:07:25.935811 #1965]  INFO -- Kitchen:     pull      Pull an image or a repository from a Docker registry server
+I, [2014-09-08T20:07:25.935840 #1965]  INFO -- Kitchen:     push      Push an image or a repository to a Docker registry server
+I, [2014-09-08T20:07:25.935866 #1965]  INFO -- Kitchen:     restart   Restart a running container
+I, [2014-09-08T20:07:25.935892 #1965]  INFO -- Kitchen:     rm        Remove one or more containers
+I, [2014-09-08T20:07:25.935918 #1965]  INFO -- Kitchen:     rmi       Remove one or more images
+I, [2014-09-08T20:07:25.935944 #1965]  INFO -- Kitchen:     run       Run a command in a new container
+I, [2014-09-08T20:07:25.935977 #1965]  INFO -- Kitchen:     save      Save an image to a tar archive
+I, [2014-09-08T20:07:25.936010 #1965]  INFO -- Kitchen:     search    Search for an image on the Docker Hub
+I, [2014-09-08T20:07:25.936046 #1965]  INFO -- Kitchen:     start     Start a stopped container
+I, [2014-09-08T20:07:25.936073 #1965]  INFO -- Kitchen:     stop      Stop a running container
+I, [2014-09-08T20:07:25.936106 #1965]  INFO -- Kitchen:     tag       Tag an image into a repository
+I, [2014-09-08T20:07:25.936130 #1965]  INFO -- Kitchen:     top       Lookup the running processes of a container
+I, [2014-09-08T20:07:25.936154 #1965]  INFO -- Kitchen:     unpause   Unpause a paused container
+I, [2014-09-08T20:07:25.936187 #1965]  INFO -- Kitchen:     version   Show the Docker version information
+I, [2014-09-08T20:07:25.936213 #1965]  INFO -- Kitchen:     wait      Block until a container stops, then print its exit code
+I, [2014-09-08T20:07:25.944433 #1965]  INFO -- Kitchen: -----> Cleaning up any prior instances of <default-centos-65>
+I, [2014-09-08T20:07:25.945113 #1965]  INFO -- Kitchen: -----> Destroying <default-centos-65>...
+I, [2014-09-08T20:07:27.898595 #1965]  INFO -- Kitchen: -----> Testing <default-centos-65>
+I, [2014-09-08T20:07:27.898999 #1965]  INFO -- Kitchen: -----> Creating <default-centos-65>...
+I, [2014-09-08T20:07:28.381540 #1965]  INFO -- Kitchen: -----> Converging <default-centos-65>...
+I, [2014-09-08T20:10:55.065046 #1965]  INFO -- Kitchen: -----> Setting up <default-centos-65>...
+I, [2014-09-08T20:12:17.438728 #1965]  INFO -- Kitchen: -----> Verifying <default-centos-65>...
+I, [2014-09-08T20:12:19.764918 #1965]  INFO -- Kitchen: -----> Destroying <default-centos-65>...
+I, [2014-09-08T20:12:26.075104 #1965]  INFO -- Kitchen: -----> Kitchen is finished. (5m0.18s)

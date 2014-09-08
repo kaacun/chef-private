@@ -1,0 +1,1030 @@
+I, [2014-09-08T20:07:20.285308 #1828]  INFO -- default-centos-65: -----> Cleaning up any prior instances of <default-centos-65>
+I, [2014-09-08T20:07:20.285499 #1828]  INFO -- default-centos-65: -----> Destroying <default-centos-65>...
+I, [2014-09-08T20:07:20.310101 #1828]  INFO -- default-centos-65: 
+I, [2014-09-08T20:07:20.310101 #1828]  INFO -- default-centos-65: Usage: docker inspect CONTAINER|IMAGE [CONTAINER|IMAGE...]
+I, [2014-09-08T20:07:20.310101 #1828]  INFO -- default-centos-65: 
+I, [2014-09-08T20:07:20.310101 #1828]  INFO -- default-centos-65: Return low-level information on a container or image
+  -f, --format=""    Format the output using the given go template.I, [2014-09-08T20:07:20.335261 #1828]  INFO -- default-centos-65: Finished destroying <default-centos-65> (0m0.05s).
+I, [2014-09-08T20:07:20.335469 #1828]  INFO -- default-centos-65: -----> Testing <default-centos-65>
+I, [2014-09-08T20:07:20.335713 #1828]  INFO -- default-centos-65: -----> Creating <default-centos-65>...
+Sending build context to Docker daemon 2.048 kBI, [2014-09-08T20:07:20.361042 #1828]  INFO -- default-centos-65: 
+I, [2014-09-08T20:07:20.361343 #1828]  INFO -- default-centos-65: Sending build context to Docker daemon 
+I, [2014-09-08T20:07:20.362225 #1828]  INFO -- default-centos-65: Step 0 : FROM centos:centos6
+I, [2014-09-08T20:07:20.386402 #1828]  INFO -- default-centos-65:  ---> 68eb857ffb51
+I, [2014-09-08T20:07:20.386491 #1828]  INFO -- default-centos-65: Step 1 : RUN yum clean all
+I, [2014-09-08T20:07:20.441332 #1828]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:20.441730 #1828]  INFO -- default-centos-65:  ---> d71678bc1106
+I, [2014-09-08T20:07:20.442015 #1828]  INFO -- default-centos-65: Step 2 : RUN yum install -y sudo openssh-server openssh-clients which curl
+I, [2014-09-08T20:07:20.444747 #1828]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:20.445025 #1828]  INFO -- default-centos-65:  ---> 5378e06dfe9c
+I, [2014-09-08T20:07:20.445194 #1828]  INFO -- default-centos-65: Step 3 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+I, [2014-09-08T20:07:20.448007 #1828]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:20.448193 #1828]  INFO -- default-centos-65:  ---> 0d3ed7345f55
+I, [2014-09-08T20:07:20.448496 #1828]  INFO -- default-centos-65: Step 4 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
+I, [2014-09-08T20:07:20.450952 #1828]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:20.451176 #1828]  INFO -- default-centos-65:  ---> 634e5b7fcbb0
+I, [2014-09-08T20:07:20.451358 #1828]  INFO -- default-centos-65: Step 5 : RUN useradd -d /home/kitchen -m -s /bin/bash kitchen
+I, [2014-09-08T20:07:20.453621 #1828]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:20.453841 #1828]  INFO -- default-centos-65:  ---> 97c3e922a877
+I, [2014-09-08T20:07:20.454001 #1828]  INFO -- default-centos-65: Step 6 : RUN echo kitchen:kitchen | chpasswd
+I, [2014-09-08T20:07:20.456613 #1828]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:20.456930 #1828]  INFO -- default-centos-65:  ---> 434273801e26
+I, [2014-09-08T20:07:20.457096 #1828]  INFO -- default-centos-65: Step 7 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+I, [2014-09-08T20:07:20.459957 #1828]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:20.460223 #1828]  INFO -- default-centos-65:  ---> 42cfaf3fde38
+I, [2014-09-08T20:07:20.460409 #1828]  INFO -- default-centos-65: Successfully built 42cfaf3fde38
+I, [2014-09-08T20:07:21.350972 #1828]  INFO -- default-centos-65: 1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be
+I, [2014-09-08T20:07:21.799440 #1828]  INFO -- default-centos-65: [{
+I, [2014-09-08T20:07:21.799506 #1828]  INFO -- default-centos-65:     "Args": [
+I, [2014-09-08T20:07:21.799506 #1828]  INFO -- default-centos-65:  "-D",
+I, [2014-09-08T20:07:21.799506 #1828]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:21.799506 #1828]  INFO -- default-centos-65:  "UseDNS=no",
+I, [2014-09-08T20:07:21.799506 #1828]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:21.799515 #1828]  INFO -- default-centos-65:  "UsePAM=no",
+I, [2014-09-08T20:07:21.799551 #1828]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:21.799583 #1828]  INFO -- default-centos-65:  "UsePrivilegeSeparation=no",
+I, [2014-09-08T20:07:21.799634 #1828]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:21.799672 #1828]  INFO -- default-centos-65:  "PidFile=/tmp/sshd.pid"
+I, [2014-09-08T20:07:21.799700 #1828]  INFO -- default-centos-65:     ],
+I, [2014-09-08T20:07:21.799726 #1828]  INFO -- default-centos-65:     "Config": {
+I, [2014-09-08T20:07:21.799757 #1828]  INFO -- default-centos-65:  "AttachStderr": false,
+I, [2014-09-08T20:07:21.799811 #1828]  INFO -- default-centos-65:  "AttachStdin": false,
+I, [2014-09-08T20:07:21.799853 #1828]  INFO -- default-centos-65:  "AttachStdout": false,
+I, [2014-09-08T20:07:21.799885 #1828]  INFO -- default-centos-65:  "Cmd": [
+I, [2014-09-08T20:07:21.799916 #1828]  INFO -- default-centos-65:      "/usr/sbin/sshd",
+I, [2014-09-08T20:07:21.799946 #1828]  INFO -- default-centos-65:      "-D",
+I, [2014-09-08T20:07:21.799981 #1828]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:21.800013 #1828]  INFO -- default-centos-65:      "UseDNS=no",
+I, [2014-09-08T20:07:21.800043 #1828]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:21.800074 #1828]  INFO -- default-centos-65:      "UsePAM=no",
+I, [2014-09-08T20:07:21.800104 #1828]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:21.800107 #1828]  INFO -- default-centos-65:      "UsePrivilegeSeparation=no",
+I, [2014-09-08T20:07:21.800107 #1828]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:21.800107 #1828]  INFO -- default-centos-65:      "PidFile=/tmp/sshd.pid"
+I, [2014-09-08T20:07:21.800107 #1828]  INFO -- default-centos-65:  ],
+I, [2014-09-08T20:07:21.800157 #1828]  INFO -- default-centos-65:  "CpuShares": 0,
+I, [2014-09-08T20:07:21.800190 #1828]  INFO -- default-centos-65:  "Cpuset": "",
+I, [2014-09-08T20:07:21.800221 #1828]  INFO -- default-centos-65:  "Domainname": "",
+I, [2014-09-08T20:07:21.800264 #1828]  INFO -- default-centos-65:  "Entrypoint": null,
+I, [2014-09-08T20:07:21.800318 #1828]  INFO -- default-centos-65:  "Env": [
+I, [2014-09-08T20:07:21.800352 #1828]  INFO -- default-centos-65:      "HOME=/",
+I, [2014-09-08T20:07:21.800855 #1828]  INFO -- default-centos-65:      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+I, [2014-09-08T20:07:21.800923 #1828]  INFO -- default-centos-65:  ],
+I, [2014-09-08T20:07:21.800982 #1828]  INFO -- default-centos-65:  "ExposedPorts": {
+I, [2014-09-08T20:07:21.801070 #1828]  INFO -- default-centos-65:      "22/tcp": {}
+I, [2014-09-08T20:07:21.801127 #1828]  INFO -- default-centos-65:  },
+I, [2014-09-08T20:07:21.801180 #1828]  INFO -- default-centos-65:  "Hostname": "1fa75cf57662",
+I, [2014-09-08T20:07:21.801230 #1828]  INFO -- default-centos-65:  "Image": "42cfaf3fde38",
+I, [2014-09-08T20:07:21.801279 #1828]  INFO -- default-centos-65:  "Memory": 0,
+I, [2014-09-08T20:07:21.801809 #1828]  INFO -- default-centos-65:  "MemorySwap": 0,
+I, [2014-09-08T20:07:21.801906 #1828]  INFO -- default-centos-65:  "NetworkDisabled": false,
+I, [2014-09-08T20:07:21.801943 #1828]  INFO -- default-centos-65:  "OnBuild": null,
+I, [2014-09-08T20:07:21.801976 #1828]  INFO -- default-centos-65:  "OpenStdin": false,
+I, [2014-09-08T20:07:21.802007 #1828]  INFO -- default-centos-65:  "PortSpecs": null,
+I, [2014-09-08T20:07:21.802039 #1828]  INFO -- default-centos-65:  "StdinOnce": false,
+I, [2014-09-08T20:07:21.802077 #1828]  INFO -- default-centos-65:  "Tty": false,
+I, [2014-09-08T20:07:21.802106 #1828]  INFO -- default-centos-65:  "User": "",
+I, [2014-09-08T20:07:21.802160 #1828]  INFO -- default-centos-65:  "Volumes": null,
+I, [2014-09-08T20:07:21.802193 #1828]  INFO -- default-centos-65:  "WorkingDir": ""
+I, [2014-09-08T20:07:21.802218 #1828]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:21.802242 #1828]  INFO -- default-centos-65:     "Created": "2014-09-08T11:07:20.503337019Z",
+I, [2014-09-08T20:07:21.802273 #1828]  INFO -- default-centos-65:     "Driver": "devicemapper",
+I, [2014-09-08T20:07:21.802299 #1828]  INFO -- default-centos-65:     "ExecDriver": "native-0.2",
+I, [2014-09-08T20:07:21.802914 #1828]  INFO -- default-centos-65:     "HostConfig": {
+I, [2014-09-08T20:07:21.802965 #1828]  INFO -- default-centos-65:  "Binds": null,
+I, [2014-09-08T20:07:21.802999 #1828]  INFO -- default-centos-65:  "ContainerIDFile": "",
+I, [2014-09-08T20:07:21.803031 #1828]  INFO -- default-centos-65:  "Dns": null,
+I, [2014-09-08T20:07:21.803063 #1828]  INFO -- default-centos-65:  "DnsSearch": null,
+I, [2014-09-08T20:07:21.803099 #1828]  INFO -- default-centos-65:  "Links": null,
+I, [2014-09-08T20:07:21.803131 #1828]  INFO -- default-centos-65:  "LxcConf": [],
+I, [2014-09-08T20:07:21.803163 #1828]  INFO -- default-centos-65:  "NetworkMode": "bridge",
+I, [2014-09-08T20:07:21.803194 #1828]  INFO -- default-centos-65:  "PortBindings": {
+I, [2014-09-08T20:07:21.803226 #1828]  INFO -- default-centos-65:      "22/tcp": [
+I, [2014-09-08T20:07:21.803257 #1828]  INFO -- default-centos-65:          {
+I, [2014-09-08T20:07:21.803288 #1828]  INFO -- default-centos-65:              "HostIp": "",
+I, [2014-09-08T20:07:21.803321 #1828]  INFO -- default-centos-65:              "HostPort": ""
+I, [2014-09-08T20:07:21.803907 #1828]  INFO -- default-centos-65:          }
+I, [2014-09-08T20:07:21.803971 #1828]  INFO -- default-centos-65:      ]
+I, [2014-09-08T20:07:21.804028 #1828]  INFO -- default-centos-65:  },
+I, [2014-09-08T20:07:21.804084 #1828]  INFO -- default-centos-65:  "Privileged": false,
+I, [2014-09-08T20:07:21.804137 #1828]  INFO -- default-centos-65:  "PublishAllPorts": false,
+I, [2014-09-08T20:07:21.804189 #1828]  INFO -- default-centos-65:  "VolumesFrom": null
+I, [2014-09-08T20:07:21.804235 #1828]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:21.804322 #1828]  INFO -- default-centos-65:     "HostnamePath": "/var/lib/docker/containers/1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be/hostname",
+I, [2014-09-08T20:07:21.804366 #1828]  INFO -- default-centos-65:     "HostsPath": "/var/lib/docker/containers/1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be/hosts",
+I, [2014-09-08T20:07:21.804394 #1828]  INFO -- default-centos-65:     "Id": "1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be",
+I, [2014-09-08T20:07:21.804509 #1828]  INFO -- default-centos-65:     "Image": "42cfaf3fde3817860cca794d0d8c47dc79131cbf4d58db127d3c6e76cad36135",
+I, [2014-09-08T20:07:21.804538 #1828]  INFO -- default-centos-65:     "MountLabel": "",
+I, [2014-09-08T20:07:21.804569 #1828]  INFO -- default-centos-65:     "Name": "/determined_einstein",
+I, [2014-09-08T20:07:21.804596 #1828]  INFO -- default-centos-65:     "NetworkSettings": {
+I, [2014-09-08T20:07:21.804627 #1828]  INFO -- default-centos-65:  "Bridge": "docker0",
+I, [2014-09-08T20:07:21.804659 #1828]  INFO -- default-centos-65:  "Gateway": "172.17.42.1",
+I, [2014-09-08T20:07:21.804690 #1828]  INFO -- default-centos-65:  "IPAddress": "172.17.0.24",
+I, [2014-09-08T20:07:21.804721 #1828]  INFO -- default-centos-65:  "IPPrefixLen": 16,
+I, [2014-09-08T20:07:21.804752 #1828]  INFO -- default-centos-65:  "PortMapping": null,
+I, [2014-09-08T20:07:21.804783 #1828]  INFO -- default-centos-65:  "Ports": {
+I, [2014-09-08T20:07:21.804837 #1828]  INFO -- default-centos-65:      "22/tcp": [
+I, [2014-09-08T20:07:21.804875 #1828]  INFO -- default-centos-65:          {
+I, [2014-09-08T20:07:21.804907 #1828]  INFO -- default-centos-65:              "HostIp": "0.0.0.0",
+I, [2014-09-08T20:07:21.804939 #1828]  INFO -- default-centos-65:              "HostPort": "49168"
+I, [2014-09-08T20:07:21.804970 #1828]  INFO -- default-centos-65:          }
+I, [2014-09-08T20:07:21.805018 #1828]  INFO -- default-centos-65:      ]
+I, [2014-09-08T20:07:21.805050 #1828]  INFO -- default-centos-65:  }
+I, [2014-09-08T20:07:21.805076 #1828]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:21.805102 #1828]  INFO -- default-centos-65:     "Path": "/usr/sbin/sshd",
+I, [2014-09-08T20:07:21.805134 #1828]  INFO -- default-centos-65:     "ProcessLabel": "",
+I, [2014-09-08T20:07:21.805162 #1828]  INFO -- default-centos-65:     "ResolvConfPath": "/etc/resolv.conf",
+I, [2014-09-08T20:07:21.805187 #1828]  INFO -- default-centos-65:     "State": {
+I, [2014-09-08T20:07:21.805222 #1828]  INFO -- default-centos-65:  "ExitCode": 0,
+I, [2014-09-08T20:07:21.805254 #1828]  INFO -- default-centos-65:  "FinishedAt": "0001-01-01T00:00:00Z",
+I, [2014-09-08T20:07:21.805285 #1828]  INFO -- default-centos-65:  "Paused": false,
+I, [2014-09-08T20:07:21.805316 #1828]  INFO -- default-centos-65:  "Pid": 1898,
+I, [2014-09-08T20:07:21.805347 #1828]  INFO -- default-centos-65:  "Running": true,
+I, [2014-09-08T20:07:21.805378 #1828]  INFO -- default-centos-65:  "StartedAt": "2014-09-08T11:07:21.759157854Z"
+I, [2014-09-08T20:07:21.805404 #1828]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:21.805430 #1828]  INFO -- default-centos-65:     "Volumes": {},
+I, [2014-09-08T20:07:21.805467 #1828]  INFO -- default-centos-65:     "VolumesRW": {}
+I, [2014-09-08T20:07:21.805467 #1828]  INFO -- default-centos-65: }
+I, [2014-09-08T20:07:21.805467 #1828]  INFO -- default-centos-65: ]
+I, [2014-09-08T20:07:21.818393 #1828]  INFO -- default-centos-65: Finished creating <default-centos-65> (0m1.48s).
+I, [2014-09-08T20:07:21.818583 #1828]  INFO -- default-centos-65: -----> Converging <default-centos-65>...
+I, [2014-09-08T20:07:21.819441 #1828]  INFO -- default-centos-65: Preparing files for transfer
+I, [2014-09-08T20:07:21.819940 #1828]  INFO -- default-centos-65: Preparing current project directory as a cookbook
+I, [2014-09-08T20:07:21.879839 #1828]  INFO -- default-centos-65: Removing non-cookbook files before transfer
+I, [2014-09-08T20:07:21.883502 #1828]  INFO -- default-centos-65: [SSH] connection failed, retrying (#<Net::SSH::Disconnect: connection closed by remote host>)
+I, [2014-09-08T20:07:21.885233 #1828]  INFO -- default-centos-65: [SSH] connection failed, retrying (#<Net::SSH::Disconnect: connection closed by remote host>)
+W, [2014-09-08T20:07:21.886783 #1828]  WARN -- default-centos-65: [SSH] connection failed, terminating (#<Net::SSH::Disconnect: connection closed by remote host>)
+E, [2014-09-08T20:07:21.888950 #1828] ERROR -- default-centos-65: Converge failed on instance <default-centos-65>.
+E, [2014-09-08T20:07:21.889134 #1828] ERROR -- default-centos-65: ------Exception-------
+E, [2014-09-08T20:07:21.889169 #1828] ERROR -- default-centos-65: Class: Kitchen::ActionFailed
+E, [2014-09-08T20:07:21.889195 #1828] ERROR -- default-centos-65: Message: connection closed by remote host
+E, [2014-09-08T20:07:21.889220 #1828] ERROR -- default-centos-65: ---Nested Exception---
+E, [2014-09-08T20:07:21.889245 #1828] ERROR -- default-centos-65: Class: Net::SSH::Disconnect
+E, [2014-09-08T20:07:21.889269 #1828] ERROR -- default-centos-65: Message: connection closed by remote host
+E, [2014-09-08T20:07:21.889368 #1828] ERROR -- default-centos-65: ------Backtrace-------
+E, [2014-09-08T20:07:21.889394 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/driver/ssh_base.rb:112:in `rescue in run_remote'
+E, [2014-09-08T20:07:21.889418 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/driver/ssh_base.rb:108:in `run_remote'
+E, [2014-09-08T20:07:21.889443 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/driver/ssh_base.rb:44:in `block in converge'
+E, [2014-09-08T20:07:21.889467 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/ssh.rb:47:in `initialize'
+E, [2014-09-08T20:07:21.889491 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/driver/ssh_base.rb:43:in `new'
+E, [2014-09-08T20:07:21.889515 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/driver/ssh_base.rb:43:in `converge'
+E, [2014-09-08T20:07:21.889539 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:273:in `public_send'
+E, [2014-09-08T20:07:21.889573 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:273:in `block in perform_action'
+E, [2014-09-08T20:07:21.889599 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:308:in `call'
+E, [2014-09-08T20:07:21.889623 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:308:in `synchronize_or_call'
+E, [2014-09-08T20:07:21.889647 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:283:in `block in action'
+E, [2014-09-08T20:07:21.889672 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
+E, [2014-09-08T20:07:21.889723 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:282:in `action'
+E, [2014-09-08T20:07:21.889775 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:273:in `perform_action'
+E, [2014-09-08T20:07:21.889804 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:256:in `converge_action'
+E, [2014-09-08T20:07:21.889829 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:246:in `block in transition_to'
+E, [2014-09-08T20:07:21.889853 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:245:in `each'
+E, [2014-09-08T20:07:21.889877 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:245:in `transition_to'
+E, [2014-09-08T20:07:21.889901 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:141:in `verify'
+E, [2014-09-08T20:07:21.889925 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:170:in `block in test'
+E, [2014-09-08T20:07:21.889949 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/2.1.0/benchmark.rb:279:in `measure'
+E, [2014-09-08T20:07:21.889973 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/instance.rb:166:in `test'
+E, [2014-09-08T20:07:21.889997 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/command.rb:109:in `public_send'
+E, [2014-09-08T20:07:21.890021 #1828] ERROR -- default-centos-65: /usr/local/lib/ruby/gems/2.1.0/gems/test-kitchen-1.2.1/lib/kitchen/command.rb:109:in `block (2 levels) in run_action'
+E, [2014-09-08T20:07:21.890045 #1828] ERROR -- default-centos-65: ----------------------
+I, [2014-09-08T20:07:25.944521 #1965]  INFO -- default-centos-65: -----> Cleaning up any prior instances of <default-centos-65>
+I, [2014-09-08T20:07:25.945153 #1965]  INFO -- default-centos-65: -----> Destroying <default-centos-65>...
+I, [2014-09-08T20:07:26.014967 #1965]  INFO -- default-centos-65: [{
+I, [2014-09-08T20:07:26.015102 #1965]  INFO -- default-centos-65:     "Args": [
+I, [2014-09-08T20:07:26.015192 #1965]  INFO -- default-centos-65:  "-D",
+I, [2014-09-08T20:07:26.015264 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:26.015308 #1965]  INFO -- default-centos-65:  "UseDNS=no",
+I, [2014-09-08T20:07:26.015339 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:26.015370 #1965]  INFO -- default-centos-65:  "UsePAM=no",
+I, [2014-09-08T20:07:26.015400 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:26.015431 #1965]  INFO -- default-centos-65:  "UsePrivilegeSeparation=no",
+I, [2014-09-08T20:07:26.015466 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:26.015498 #1965]  INFO -- default-centos-65:  "PidFile=/tmp/sshd.pid"
+I, [2014-09-08T20:07:26.015524 #1965]  INFO -- default-centos-65:     ],
+I, [2014-09-08T20:07:26.015559 #1965]  INFO -- default-centos-65:     "Config": {
+I, [2014-09-08T20:07:26.015591 #1965]  INFO -- default-centos-65:  "AttachStderr": false,
+I, [2014-09-08T20:07:26.015625 #1965]  INFO -- default-centos-65:  "AttachStdin": false,
+I, [2014-09-08T20:07:26.015657 #1965]  INFO -- default-centos-65:  "AttachStdout": false,
+I, [2014-09-08T20:07:26.015688 #1965]  INFO -- default-centos-65:  "Cmd": [
+I, [2014-09-08T20:07:26.015718 #1965]  INFO -- default-centos-65:      "/usr/sbin/sshd",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "-D",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "UseDNS=no",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "UsePAM=no",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "UsePrivilegeSeparation=no",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:      "PidFile=/tmp/sshd.pid"
+I, [2014-09-08T20:07:26.015728 #1965]  INFO -- default-centos-65:  ],
+I, [2014-09-08T20:07:26.015755 #1965]  INFO -- default-centos-65:  "CpuShares": 0,
+I, [2014-09-08T20:07:26.015797 #1965]  INFO -- default-centos-65:  "Cpuset": "",
+I, [2014-09-08T20:07:26.015833 #1965]  INFO -- default-centos-65:  "Domainname": "",
+I, [2014-09-08T20:07:26.015865 #1965]  INFO -- default-centos-65:  "Entrypoint": null,
+I, [2014-09-08T20:07:26.015895 #1965]  INFO -- default-centos-65:  "Env": [
+I, [2014-09-08T20:07:26.015926 #1965]  INFO -- default-centos-65:      "HOME=/",
+I, [2014-09-08T20:07:26.015956 #1965]  INFO -- default-centos-65:      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+I, [2014-09-08T20:07:26.015986 #1965]  INFO -- default-centos-65:  ],
+I, [2014-09-08T20:07:26.016023 #1965]  INFO -- default-centos-65:  "ExposedPorts": {
+I, [2014-09-08T20:07:26.016051 #1965]  INFO -- default-centos-65:      "22/tcp": {}
+I, [2014-09-08T20:07:26.016088 #1965]  INFO -- default-centos-65:  },
+I, [2014-09-08T20:07:26.016136 #1965]  INFO -- default-centos-65:  "Hostname": "1fa75cf57662",
+I, [2014-09-08T20:07:26.016170 #1965]  INFO -- default-centos-65:  "Image": "42cfaf3fde38",
+I, [2014-09-08T20:07:26.016200 #1965]  INFO -- default-centos-65:  "Memory": 0,
+I, [2014-09-08T20:07:26.016233 #1965]  INFO -- default-centos-65:  "MemorySwap": 0,
+I, [2014-09-08T20:07:26.016653 #1965]  INFO -- default-centos-65:  "NetworkDisabled": false,
+I, [2014-09-08T20:07:26.016713 #1965]  INFO -- default-centos-65:  "OnBuild": null,
+I, [2014-09-08T20:07:26.016768 #1965]  INFO -- default-centos-65:  "OpenStdin": false,
+I, [2014-09-08T20:07:26.016825 #1965]  INFO -- default-centos-65:  "PortSpecs": null,
+I, [2014-09-08T20:07:26.016888 #1965]  INFO -- default-centos-65:  "StdinOnce": false,
+I, [2014-09-08T20:07:26.016939 #1965]  INFO -- default-centos-65:  "Tty": false,
+I, [2014-09-08T20:07:26.016990 #1965]  INFO -- default-centos-65:  "User": "",
+I, [2014-09-08T20:07:26.017042 #1965]  INFO -- default-centos-65:  "Volumes": null,
+I, [2014-09-08T20:07:26.017090 #1965]  INFO -- default-centos-65:  "WorkingDir": ""
+I, [2014-09-08T20:07:26.017131 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:26.017171 #1965]  INFO -- default-centos-65:     "Created": "2014-09-08T11:07:20.503337019Z",
+I, [2014-09-08T20:07:26.017232 #1965]  INFO -- default-centos-65:     "Driver": "devicemapper",
+I, [2014-09-08T20:07:26.017276 #1965]  INFO -- default-centos-65:     "ExecDriver": "native-0.2",
+I, [2014-09-08T20:07:26.018990 #1965]  INFO -- default-centos-65:     "HostConfig": {
+I, [2014-09-08T20:07:26.019083 #1965]  INFO -- default-centos-65:  "Binds": null,
+I, [2014-09-08T20:07:26.019126 #1965]  INFO -- default-centos-65:  "ContainerIDFile": "",
+I, [2014-09-08T20:07:26.019192 #1965]  INFO -- default-centos-65:  "Dns": null,
+I, [2014-09-08T20:07:26.019239 #1965]  INFO -- default-centos-65:  "DnsSearch": null,
+I, [2014-09-08T20:07:26.019331 #1965]  INFO -- default-centos-65:  "Links": null,
+I, [2014-09-08T20:07:26.019395 #1965]  INFO -- default-centos-65:  "LxcConf": [],
+I, [2014-09-08T20:07:26.019429 #1965]  INFO -- default-centos-65:  "NetworkMode": "bridge",
+I, [2014-09-08T20:07:26.019460 #1965]  INFO -- default-centos-65:  "PortBindings": {
+I, [2014-09-08T20:07:26.019495 #1965]  INFO -- default-centos-65:      "22/tcp": [
+I, [2014-09-08T20:07:26.019526 #1965]  INFO -- default-centos-65:          {
+I, [2014-09-08T20:07:26.019557 #1965]  INFO -- default-centos-65:              "HostIp": "",
+I, [2014-09-08T20:07:26.019588 #1965]  INFO -- default-centos-65:              "HostPort": ""
+I, [2014-09-08T20:07:26.019624 #1965]  INFO -- default-centos-65:          }
+I, [2014-09-08T20:07:26.019655 #1965]  INFO -- default-centos-65:      ]
+I, [2014-09-08T20:07:26.019685 #1965]  INFO -- default-centos-65:  },
+I, [2014-09-08T20:07:26.019716 #1965]  INFO -- default-centos-65:  "Privileged": false,
+I, [2014-09-08T20:07:26.019746 #1965]  INFO -- default-centos-65:  "PublishAllPorts": false,
+I, [2014-09-08T20:07:26.019776 #1965]  INFO -- default-centos-65:  "VolumesFrom": null
+I, [2014-09-08T20:07:26.019802 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:26.019829 #1965]  INFO -- default-centos-65:     "HostnamePath": "/var/lib/docker/containers/1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be/hostname",
+I, [2014-09-08T20:07:26.019887 #1965]  INFO -- default-centos-65:     "HostsPath": "/var/lib/docker/containers/1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be/hosts",
+I, [2014-09-08T20:07:26.019917 #1965]  INFO -- default-centos-65:     "Id": "1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be",
+I, [2014-09-08T20:07:26.019949 #1965]  INFO -- default-centos-65:     "Image": "42cfaf3fde3817860cca794d0d8c47dc79131cbf4d58db127d3c6e76cad36135",
+I, [2014-09-08T20:07:26.019976 #1965]  INFO -- default-centos-65:     "MountLabel": "",
+I, [2014-09-08T20:07:26.020002 #1965]  INFO -- default-centos-65:     "Name": "/determined_einstein",
+I, [2014-09-08T20:07:26.020027 #1965]  INFO -- default-centos-65:     "NetworkSettings": {
+I, [2014-09-08T20:07:26.020057 #1965]  INFO -- default-centos-65:  "Bridge": "docker0",
+I, [2014-09-08T20:07:26.020088 #1965]  INFO -- default-centos-65:  "Gateway": "172.17.42.1",
+I, [2014-09-08T20:07:26.020121 #1965]  INFO -- default-centos-65:  "IPAddress": "172.17.0.24",
+I, [2014-09-08T20:07:26.020153 #1965]  INFO -- default-centos-65:  "IPPrefixLen": 16,
+I, [2014-09-08T20:07:26.020183 #1965]  INFO -- default-centos-65:  "PortMapping": null,
+I, [2014-09-08T20:07:26.020214 #1965]  INFO -- default-centos-65:  "Ports": {
+I, [2014-09-08T20:07:26.020248 #1965]  INFO -- default-centos-65:      "22/tcp": [
+I, [2014-09-08T20:07:26.020279 #1965]  INFO -- default-centos-65:          {
+I, [2014-09-08T20:07:26.020310 #1965]  INFO -- default-centos-65:              "HostIp": "0.0.0.0",
+I, [2014-09-08T20:07:26.020341 #1965]  INFO -- default-centos-65:              "HostPort": "49168"
+I, [2014-09-08T20:07:26.020351 #1965]  INFO -- default-centos-65:          }
+I, [2014-09-08T20:07:26.020377 #1965]  INFO -- default-centos-65:      ]
+I, [2014-09-08T20:07:26.020411 #1965]  INFO -- default-centos-65:  }
+I, [2014-09-08T20:07:26.020455 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:26.020492 #1965]  INFO -- default-centos-65:     "Path": "/usr/sbin/sshd",
+I, [2014-09-08T20:07:26.020516 #1965]  INFO -- default-centos-65:     "ProcessLabel": "",
+I, [2014-09-08T20:07:26.020543 #1965]  INFO -- default-centos-65:     "ResolvConfPath": "/etc/resolv.conf",
+I, [2014-09-08T20:07:26.020568 #1965]  INFO -- default-centos-65:     "State": {
+I, [2014-09-08T20:07:26.020596 #1965]  INFO -- default-centos-65:  "ExitCode": 0,
+I, [2014-09-08T20:07:26.020625 #1965]  INFO -- default-centos-65:  "FinishedAt": "0001-01-01T00:00:00Z",
+I, [2014-09-08T20:07:26.020653 #1965]  INFO -- default-centos-65:  "Paused": false,
+I, [2014-09-08T20:07:26.020689 #1965]  INFO -- default-centos-65:  "Pid": 1898,
+I, [2014-09-08T20:07:26.020719 #1965]  INFO -- default-centos-65:  "Running": true,
+I, [2014-09-08T20:07:26.020773 #1965]  INFO -- default-centos-65:  "StartedAt": "2014-09-08T11:07:21.759157854Z"
+I, [2014-09-08T20:07:26.020807 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:26.020832 #1965]  INFO -- default-centos-65:     "Volumes": {},
+I, [2014-09-08T20:07:26.020856 #1965]  INFO -- default-centos-65:     "VolumesRW": {}
+I, [2014-09-08T20:07:26.020880 #1965]  INFO -- default-centos-65: }
+I, [2014-09-08T20:07:26.020907 #1965]  INFO -- default-centos-65: ]
+I, [2014-09-08T20:07:26.054852 #1965]  INFO -- default-centos-65: 1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be
+I, [2014-09-08T20:07:27.883529 #1965]  INFO -- default-centos-65: 1fa75cf576620f3f7df3a1d948408118a60cbbf608f97e2b3a33525992f1e2be
+I, [2014-09-08T20:07:27.898048 #1965]  INFO -- default-centos-65: Finished destroying <default-centos-65> (0m1.95s).
+I, [2014-09-08T20:07:27.898664 #1965]  INFO -- default-centos-65: -----> Testing <default-centos-65>
+I, [2014-09-08T20:07:27.899058 #1965]  INFO -- default-centos-65: -----> Creating <default-centos-65>...
+Sending build context to Docker daemon 2.048 kBI, [2014-09-08T20:07:27.932753 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:07:27.932754 #1965]  INFO -- default-centos-65: Sending build context to Docker daemon 
+I, [2014-09-08T20:07:27.935002 #1965]  INFO -- default-centos-65: Step 0 : FROM centos:centos6
+I, [2014-09-08T20:07:27.952879 #1965]  INFO -- default-centos-65:  ---> 68eb857ffb51
+I, [2014-09-08T20:07:27.953090 #1965]  INFO -- default-centos-65: Step 1 : RUN yum clean all
+I, [2014-09-08T20:07:27.955898 #1965]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:27.956133 #1965]  INFO -- default-centos-65:  ---> d71678bc1106
+I, [2014-09-08T20:07:27.957037 #1965]  INFO -- default-centos-65: Step 2 : RUN yum install -y sudo openssh-server openssh-clients which curl
+I, [2014-09-08T20:07:27.959434 #1965]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:27.959670 #1965]  INFO -- default-centos-65:  ---> 5378e06dfe9c
+I, [2014-09-08T20:07:27.959843 #1965]  INFO -- default-centos-65: Step 3 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+I, [2014-09-08T20:07:27.962100 #1965]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:27.962323 #1965]  INFO -- default-centos-65:  ---> 0d3ed7345f55
+I, [2014-09-08T20:07:27.971432 #1965]  INFO -- default-centos-65: Step 4 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
+I, [2014-09-08T20:07:27.971499 #1965]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:27.972920 #1965]  INFO -- default-centos-65:  ---> 634e5b7fcbb0
+I, [2014-09-08T20:07:27.972920 #1965]  INFO -- default-centos-65: Step 5 : RUN useradd -d /home/kitchen -m -s /bin/bash kitchen
+I, [2014-09-08T20:07:27.975770 #1965]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:27.976073 #1965]  INFO -- default-centos-65:  ---> 97c3e922a877
+I, [2014-09-08T20:07:27.976236 #1965]  INFO -- default-centos-65: Step 6 : RUN echo kitchen:kitchen | chpasswd
+I, [2014-09-08T20:07:27.978479 #1965]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:27.978715 #1965]  INFO -- default-centos-65:  ---> 434273801e26
+I, [2014-09-08T20:07:27.978779 #1965]  INFO -- default-centos-65: Step 7 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+I, [2014-09-08T20:07:27.988292 #1965]  INFO -- default-centos-65:  ---> Using cache
+I, [2014-09-08T20:07:27.988566 #1965]  INFO -- default-centos-65:  ---> 42cfaf3fde38
+I, [2014-09-08T20:07:27.988674 #1965]  INFO -- default-centos-65: Successfully built 42cfaf3fde38
+I, [2014-09-08T20:07:28.162184 #1965]  INFO -- default-centos-65: 9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09
+I, [2014-09-08T20:07:28.348284 #1965]  INFO -- default-centos-65: [{
+I, [2014-09-08T20:07:28.348401 #1965]  INFO -- default-centos-65:     "Args": [
+I, [2014-09-08T20:07:28.348413 #1965]  INFO -- default-centos-65:  "-D",
+I, [2014-09-08T20:07:28.348928 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:28.348960 #1965]  INFO -- default-centos-65:  "UseDNS=no",
+I, [2014-09-08T20:07:28.348989 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:28.349018 #1965]  INFO -- default-centos-65:  "UsePAM=no",
+I, [2014-09-08T20:07:28.349047 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:28.349076 #1965]  INFO -- default-centos-65:  "UsePrivilegeSeparation=no",
+I, [2014-09-08T20:07:28.349104 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:07:28.349132 #1965]  INFO -- default-centos-65:  "PidFile=/tmp/sshd.pid"
+I, [2014-09-08T20:07:28.349156 #1965]  INFO -- default-centos-65:     ],
+I, [2014-09-08T20:07:28.349170 #1965]  INFO -- default-centos-65:     "Config": {
+I, [2014-09-08T20:07:28.349181 #1965]  INFO -- default-centos-65:  "AttachStderr": false,
+I, [2014-09-08T20:07:28.349214 #1965]  INFO -- default-centos-65:  "AttachStdin": false,
+I, [2014-09-08T20:07:28.349243 #1965]  INFO -- default-centos-65:  "AttachStdout": false,
+I, [2014-09-08T20:07:28.349272 #1965]  INFO -- default-centos-65:  "Cmd": [
+I, [2014-09-08T20:07:28.349300 #1965]  INFO -- default-centos-65:      "/usr/sbin/sshd",
+I, [2014-09-08T20:07:28.349329 #1965]  INFO -- default-centos-65:      "-D",
+I, [2014-09-08T20:07:28.349357 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:28.349451 #1965]  INFO -- default-centos-65:      "UseDNS=no",
+I, [2014-09-08T20:07:28.349482 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:28.349510 #1965]  INFO -- default-centos-65:      "UsePAM=no",
+I, [2014-09-08T20:07:28.349539 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:28.349803 #1965]  INFO -- default-centos-65:      "UsePrivilegeSeparation=no",
+I, [2014-09-08T20:07:28.349875 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:07:28.349932 #1965]  INFO -- default-centos-65:      "PidFile=/tmp/sshd.pid"
+I, [2014-09-08T20:07:28.349986 #1965]  INFO -- default-centos-65:  ],
+I, [2014-09-08T20:07:28.350038 #1965]  INFO -- default-centos-65:  "CpuShares": 0,
+I, [2014-09-08T20:07:28.350088 #1965]  INFO -- default-centos-65:  "Cpuset": "",
+I, [2014-09-08T20:07:28.350137 #1965]  INFO -- default-centos-65:  "Domainname": "",
+I, [2014-09-08T20:07:28.350183 #1965]  INFO -- default-centos-65:  "Entrypoint": null,
+I, [2014-09-08T20:07:28.350229 #1965]  INFO -- default-centos-65:  "Env": [
+I, [2014-09-08T20:07:28.350273 #1965]  INFO -- default-centos-65:      "HOME=/",
+I, [2014-09-08T20:07:28.350353 #1965]  INFO -- default-centos-65:      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+I, [2014-09-08T20:07:28.350462 #1965]  INFO -- default-centos-65:  ],
+I, [2014-09-08T20:07:28.350495 #1965]  INFO -- default-centos-65:  "ExposedPorts": {
+I, [2014-09-08T20:07:28.350524 #1965]  INFO -- default-centos-65:      "22/tcp": {}
+I, [2014-09-08T20:07:28.350552 #1965]  INFO -- default-centos-65:  },
+I, [2014-09-08T20:07:28.350581 #1965]  INFO -- default-centos-65:  "Hostname": "9eb8ae6b1f52",
+I, [2014-09-08T20:07:28.350609 #1965]  INFO -- default-centos-65:  "Image": "42cfaf3fde38",
+I, [2014-09-08T20:07:28.350637 #1965]  INFO -- default-centos-65:  "Memory": 0,
+I, [2014-09-08T20:07:28.350666 #1965]  INFO -- default-centos-65:  "MemorySwap": 0,
+I, [2014-09-08T20:07:28.350695 #1965]  INFO -- default-centos-65:  "NetworkDisabled": false,
+I, [2014-09-08T20:07:28.350723 #1965]  INFO -- default-centos-65:  "OnBuild": null,
+I, [2014-09-08T20:07:28.350752 #1965]  INFO -- default-centos-65:  "OpenStdin": false,
+I, [2014-09-08T20:07:28.350780 #1965]  INFO -- default-centos-65:  "PortSpecs": null,
+I, [2014-09-08T20:07:28.350809 #1965]  INFO -- default-centos-65:  "StdinOnce": false,
+I, [2014-09-08T20:07:28.350838 #1965]  INFO -- default-centos-65:  "Tty": false,
+I, [2014-09-08T20:07:28.351795 #1965]  INFO -- default-centos-65:  "User": "",
+I, [2014-09-08T20:07:28.351846 #1965]  INFO -- default-centos-65:  "Volumes": null,
+I, [2014-09-08T20:07:28.351883 #1965]  INFO -- default-centos-65:  "WorkingDir": ""
+I, [2014-09-08T20:07:28.351969 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:28.351994 #1965]  INFO -- default-centos-65:     "Created": "2014-09-08T11:07:28.034463864Z",
+I, [2014-09-08T20:07:28.352018 #1965]  INFO -- default-centos-65:     "Driver": "devicemapper",
+I, [2014-09-08T20:07:28.352043 #1965]  INFO -- default-centos-65:     "ExecDriver": "native-0.2",
+I, [2014-09-08T20:07:28.352067 #1965]  INFO -- default-centos-65:     "HostConfig": {
+I, [2014-09-08T20:07:28.352096 #1965]  INFO -- default-centos-65:  "Binds": null,
+I, [2014-09-08T20:07:28.352124 #1965]  INFO -- default-centos-65:  "ContainerIDFile": "",
+I, [2014-09-08T20:07:28.352153 #1965]  INFO -- default-centos-65:  "Dns": null,
+I, [2014-09-08T20:07:28.352181 #1965]  INFO -- default-centos-65:  "DnsSearch": null,
+I, [2014-09-08T20:07:28.352210 #1965]  INFO -- default-centos-65:  "Links": null,
+I, [2014-09-08T20:07:28.352238 #1965]  INFO -- default-centos-65:  "LxcConf": [],
+I, [2014-09-08T20:07:28.352808 #1965]  INFO -- default-centos-65:  "NetworkMode": "bridge",
+I, [2014-09-08T20:07:28.352871 #1965]  INFO -- default-centos-65:  "PortBindings": {
+I, [2014-09-08T20:07:28.352928 #1965]  INFO -- default-centos-65:      "22/tcp": [
+I, [2014-09-08T20:07:28.352983 #1965]  INFO -- default-centos-65:          {
+I, [2014-09-08T20:07:28.353036 #1965]  INFO -- default-centos-65:              "HostIp": "",
+I, [2014-09-08T20:07:28.353088 #1965]  INFO -- default-centos-65:              "HostPort": ""
+I, [2014-09-08T20:07:28.353183 #1965]  INFO -- default-centos-65:          }
+I, [2014-09-08T20:07:28.353230 #1965]  INFO -- default-centos-65:      ]
+I, [2014-09-08T20:07:28.353276 #1965]  INFO -- default-centos-65:  },
+I, [2014-09-08T20:07:28.353325 #1965]  INFO -- default-centos-65:  "Privileged": false,
+I, [2014-09-08T20:07:28.353370 #1965]  INFO -- default-centos-65:  "PublishAllPorts": false,
+I, [2014-09-08T20:07:28.353400 #1965]  INFO -- default-centos-65:  "VolumesFrom": null
+I, [2014-09-08T20:07:28.353425 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:28.353449 #1965]  INFO -- default-centos-65:     "HostnamePath": "/var/lib/docker/containers/9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09/hostname",
+I, [2014-09-08T20:07:28.353474 #1965]  INFO -- default-centos-65:     "HostsPath": "/var/lib/docker/containers/9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09/hosts",
+I, [2014-09-08T20:07:28.353498 #1965]  INFO -- default-centos-65:     "Id": "9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09",
+I, [2014-09-08T20:07:28.353522 #1965]  INFO -- default-centos-65:     "Image": "42cfaf3fde3817860cca794d0d8c47dc79131cbf4d58db127d3c6e76cad36135",
+I, [2014-09-08T20:07:28.353546 #1965]  INFO -- default-centos-65:     "MountLabel": "",
+I, [2014-09-08T20:07:28.353569 #1965]  INFO -- default-centos-65:     "Name": "/grave_lovelace",
+I, [2014-09-08T20:07:28.353593 #1965]  INFO -- default-centos-65:     "NetworkSettings": {
+I, [2014-09-08T20:07:28.353621 #1965]  INFO -- default-centos-65:  "Bridge": "docker0",
+I, [2014-09-08T20:07:28.353692 #1965]  INFO -- default-centos-65:  "Gateway": "172.17.42.1",
+I, [2014-09-08T20:07:28.353723 #1965]  INFO -- default-centos-65:  "IPAddress": "172.17.0.25",
+I, [2014-09-08T20:07:28.353752 #1965]  INFO -- default-centos-65:  "IPPrefixLen": 16,
+I, [2014-09-08T20:07:28.353781 #1965]  INFO -- default-centos-65:  "PortMapping": null,
+I, [2014-09-08T20:07:28.353810 #1965]  INFO -- default-centos-65:  "Ports": {
+I, [2014-09-08T20:07:28.353872 #1965]  INFO -- default-centos-65:      "22/tcp": [
+I, [2014-09-08T20:07:28.353903 #1965]  INFO -- default-centos-65:          {
+I, [2014-09-08T20:07:28.353933 #1965]  INFO -- default-centos-65:              "HostIp": "0.0.0.0",
+I, [2014-09-08T20:07:28.353963 #1965]  INFO -- default-centos-65:              "HostPort": "49169"
+I, [2014-09-08T20:07:28.353991 #1965]  INFO -- default-centos-65:          }
+I, [2014-09-08T20:07:28.354020 #1965]  INFO -- default-centos-65:      ]
+I, [2014-09-08T20:07:28.354054 #1965]  INFO -- default-centos-65:  }
+I, [2014-09-08T20:07:28.354099 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:28.354124 #1965]  INFO -- default-centos-65:     "Path": "/usr/sbin/sshd",
+I, [2014-09-08T20:07:28.354148 #1965]  INFO -- default-centos-65:     "ProcessLabel": "",
+I, [2014-09-08T20:07:28.354172 #1965]  INFO -- default-centos-65:     "ResolvConfPath": "/etc/resolv.conf",
+I, [2014-09-08T20:07:28.354196 #1965]  INFO -- default-centos-65:     "State": {
+I, [2014-09-08T20:07:28.354224 #1965]  INFO -- default-centos-65:  "ExitCode": 0,
+I, [2014-09-08T20:07:28.354253 #1965]  INFO -- default-centos-65:  "FinishedAt": "0001-01-01T00:00:00Z",
+I, [2014-09-08T20:07:28.354281 #1965]  INFO -- default-centos-65:  "Paused": false,
+I, [2014-09-08T20:07:28.354310 #1965]  INFO -- default-centos-65:  "Pid": 2088,
+I, [2014-09-08T20:07:28.354356 #1965]  INFO -- default-centos-65:  "Running": true,
+I, [2014-09-08T20:07:28.354390 #1965]  INFO -- default-centos-65:  "StartedAt": "2014-09-08T11:07:28.261332051Z"
+I, [2014-09-08T20:07:28.354416 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:07:28.354440 #1965]  INFO -- default-centos-65:     "Volumes": {},
+I, [2014-09-08T20:07:28.354463 #1965]  INFO -- default-centos-65:     "VolumesRW": {}
+I, [2014-09-08T20:07:28.354487 #1965]  INFO -- default-centos-65: }
+I, [2014-09-08T20:07:28.354511 #1965]  INFO -- default-centos-65: ]
+I, [2014-09-08T20:07:28.381404 #1965]  INFO -- default-centos-65: Finished creating <default-centos-65> (0m0.48s).
+I, [2014-09-08T20:07:28.381587 #1965]  INFO -- default-centos-65: -----> Converging <default-centos-65>...
+I, [2014-09-08T20:07:28.382077 #1965]  INFO -- default-centos-65: Preparing files for transfer
+I, [2014-09-08T20:07:28.382376 #1965]  INFO -- default-centos-65: Preparing current project directory as a cookbook
+I, [2014-09-08T20:07:28.387326 #1965]  INFO -- default-centos-65: Removing non-cookbook files before transfer
+I, [2014-09-08T20:07:28.586106 #1965]  INFO -- default-centos-65: -----> Installing Chef Omnibus (true)
+I, [2014-09-08T20:07:28.586202 #1965]  INFO -- default-centos-65: downloading https://www.getchef.com/chef/install.sh
+I, [2014-09-08T20:07:28.586236 #1965]  INFO -- default-centos-65:   to file /tmp/install.sh
+I, [2014-09-08T20:07:28.589094 #1965]  INFO -- default-centos-65: trying curl...
+I, [2014-09-08T20:07:29.585912 #1965]  INFO -- default-centos-65:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+I, [2014-09-08T20:07:29.586030 #1965]  INFO -- default-centos-65:                           Dload  Upload   Total   Spent    Left  Speed
+I, [2014-09-08T20:07:29.586082 #1965]  INFO -- default-centos-65:   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+I, [2014-09-08T20:07:30.086914 #1965]  INFO -- default-centos-65:  98 16519   98 16177    0     0  11167      0  0:00:01  0:00:01 --:--:-- 32225100 16519  100 16519    0     0  11402      0  0:00:01  0:00:01 --:--:-- 32906
+I, [2014-09-08T20:07:30.335871 #1965]  INFO -- default-centos-65: Downloading Chef  for el...
+I, [2014-09-08T20:07:30.339985 #1965]  INFO -- default-centos-65: downloading https://www.getchef.com/chef/metadata?v=&prerelease=false&nightlies=false&p=el&pv=6&m=x86_64
+I, [2014-09-08T20:07:30.340114 #1965]  INFO -- default-centos-65:   to file /tmp/install.sh.20/metadata.txt
+I, [2014-09-08T20:07:30.340185 #1965]  INFO -- default-centos-65: trying curl...
+I, [2014-09-08T20:07:31.184629 #1965]  INFO -- default-centos-65: url	https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-11.14.6-1.el6.x86_64.rpm
+I, [2014-09-08T20:07:31.184724 #1965]  INFO -- default-centos-65: md5	3b48cadc7d27794f4be60918d97a0ae0
+I, [2014-09-08T20:07:31.184756 #1965]  INFO -- default-centos-65: sha256	2f6b86b44c11d1132a9663135e4c0ee03fa6707af7a42bc54f0a111dd382543b
+I, [2014-09-08T20:07:31.188746 #1965]  INFO -- default-centos-65: downloaded metadata file looks valid...
+I, [2014-09-08T20:07:31.343804 #1965]  INFO -- default-centos-65: downloading https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-11.14.6-1.el6.x86_64.rpm
+I, [2014-09-08T20:07:31.343903 #1965]  INFO -- default-centos-65:   to file /tmp/install.sh.20/chef-11.14.6-1.el6.x86_64.rpm
+I, [2014-09-08T20:07:31.343934 #1965]  INFO -- default-centos-65: trying curl...
+I, [2014-09-08T20:09:28.297407 #1965]  INFO -- default-centos-65: Comparing checksum with sha256sum...
+I, [2014-09-08T20:09:28.587724 #1965]  INFO -- default-centos-65: Installing Chef 
+I, [2014-09-08T20:09:28.587810 #1965]  INFO -- default-centos-65: installing with rpm...
+I, [2014-09-08T20:09:29.196730 #1965]  INFO -- default-centos-65: warning: /tmp/install.sh.20/chef-11.14.6-1.el6.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
+Preparing...                                                            (100%)#                                           (100%)##                                          (100%)###                                         (100%)####                                        (100%)#####                                       (100%)######                                      (100%)#######                                     (100%)########                                    (100%)#########                                   (100%)##########                                  (100%)###########                                 (100%)############                                (100%)#############                               (100%)##############                              (100%)###############                             (100%)################                            (100%)#################                           (100%)##################                          (100%)###################                         (100%)####################                        (100%)#####################                       (100%)######################                      (100%)#######################                     (100%)########################                    (100%)#########################                   (100%)##########################                  (100%)###########################                 (100%)############################                (100%)#############################               (100%)##############################              (100%)###############################             (100%)################################            (100%)#################################           (100%)##################################          (100%)###################################         (100%)####################################        (100%)#####################################       (100%)######################################      (100%)#######################################     (100%)########################################    (100%)I, [2014-09-08T20:09:29.589493 #1965]  INFO -- default-centos-65: #########################################   (100%)##########################################  (100%)########################################### (100%)########################################### [100%]
+   1:chef                                                               (  1%)#                                           (  3%)##                                          (  6%)###                                         (  8%)####                                        ( 10%)#####                                       ( 13%)######                                      ( 15%)#######                                     ( 17%)########                                    ( 19%)#########                                   ( 22%)##########                                  ( 24%)###########                                 ( 26%)############                                ( 28%)#############                               ( 31%)##############                              ( 33%)###############                             ( 35%)################                            ( 38%)#################                           ( 40%)##################                          ( 42%)###################                         ( 44%)####################                        ( 47%)#####################                       ( 49%)######################                      ( 51%)#######################                     ( 53%)########################                    ( 56%)#########################                   ( 58%)##########################                  ( 60%)###########################                 ( 63%)############################                ( 65%)#############################               ( 67%)##############################              ( 69%)###############################             ( 72%)################################            ( 74%)#################################           ( 76%)##################################          ( 78%)###################################         ( 81%)####################################        ( 83%)#####################################       ( 85%)######################################      ( 88%)#######################################     ( 90%)########################################    ( 92%)#########################################   ( 94%)##########################################  ( 97%)I, [2014-09-08T20:09:35.423746 #1965]  INFO -- default-centos-65: ########################################### ( 99%)########################################### [100%]
+I, [2014-09-08T20:09:43.169860 #1965]  INFO -- default-centos-65: Thank you for installing Chef!
+I, [2014-09-08T20:09:44.008870 #1965]  INFO -- default-centos-65: Transfering files to <default-centos-65>
+I, [2014-09-08T20:09:46.375763 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:46+01:00] INFO: Forking chef instance to converge...
+I, [2014-09-08T20:09:46.479782 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:46+01:00] WARN: 
+I, [2014-09-08T20:09:46.479876 #1965]  INFO -- default-centos-65: * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+I, [2014-09-08T20:09:46.479916 #1965]  INFO -- default-centos-65: SSL validation of HTTPS requests is disabled. HTTPS connections are still
+I, [2014-09-08T20:09:46.479944 #1965]  INFO -- default-centos-65: encrypted, but chef is not able to detect forged replies or man in the middle
+I, [2014-09-08T20:09:46.480005 #1965]  INFO -- default-centos-65: attacks.
+I, [2014-09-08T20:09:46.480031 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:46.480056 #1965]  INFO -- default-centos-65: To fix this issue add an entry like this to your configuration file:
+I, [2014-09-08T20:09:46.480081 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:46.480106 #1965]  INFO -- default-centos-65: ```
+I, [2014-09-08T20:09:46.480131 #1965]  INFO -- default-centos-65:   # Verify all HTTPS connections (recommended)
+I, [2014-09-08T20:09:46.480156 #1965]  INFO -- default-centos-65:   ssl_verify_mode :verify_peer
+I, [2014-09-08T20:09:46.480203 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:46.480256 #1965]  INFO -- default-centos-65:   # OR, Verify only connections to chef-server
+I, [2014-09-08T20:09:46.480309 #1965]  INFO -- default-centos-65:   verify_api_cert true
+I, [2014-09-08T20:09:46.480336 #1965]  INFO -- default-centos-65: ```
+I, [2014-09-08T20:09:46.480361 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:46.480387 #1965]  INFO -- default-centos-65: To check your SSL configuration, or troubleshoot errors, you can use the
+I, [2014-09-08T20:09:46.480440 #1965]  INFO -- default-centos-65: `knife ssl check` command like so:
+I, [2014-09-08T20:09:46.480446 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:46.480447 #1965]  INFO -- default-centos-65: ```
+I, [2014-09-08T20:09:46.480447 #1965]  INFO -- default-centos-65:   knife ssl check -c /tmp/kitchen/solo.rb
+I, [2014-09-08T20:09:46.480450 #1965]  INFO -- default-centos-65: ```
+I, [2014-09-08T20:09:46.480520 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:46.480552 #1965]  INFO -- default-centos-65: * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+I, [2014-09-08T20:09:46.480578 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:46.559641 #1965]  INFO -- default-centos-65: Starting Chef Client, version 11.14.6[0m
+I, [2014-09-08T20:09:46.560749 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:46+01:00] INFO: *** Chef 11.14.6 ***
+I, [2014-09-08T20:09:46.560831 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:46+01:00] INFO: Chef-client pid: 114
+I, [2014-09-08T20:09:48.990530 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:48+01:00] INFO: Setting the run_list to ["recipe[httpd::default]"] from CLI options
+I, [2014-09-08T20:09:48.995539 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:48+01:00] INFO: Run List is [recipe[httpd::default]]
+I, [2014-09-08T20:09:48.995625 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:48+01:00] INFO: Run List expands to [httpd::default]
+I, [2014-09-08T20:09:48.995668 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:48+01:00] INFO: Starting Chef Run for default-centos-65
+I, [2014-09-08T20:09:48.995695 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:48+01:00] INFO: Running start handlers
+I, [2014-09-08T20:09:48.995722 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:48+01:00] INFO: Start handlers complete.
+I, [2014-09-08T20:09:48.999332 #1965]  INFO -- default-centos-65: Compiling Cookbooks...[0m
+I, [2014-09-08T20:09:49.004872 #1965]  INFO -- default-centos-65: Converging 8 resources[0m
+I, [2014-09-08T20:09:49.007240 #1965]  INFO -- default-centos-65: Recipe: httpd::default[0m
+I, [2014-09-08T20:09:49.007338 #1965]  INFO -- default-centos-65:   * log[== start httpd ===============================] action write[2014-09-08T12:09:49+01:00] INFO: Processing log[== start httpd ===============================] action write (httpd::default line 14)
+I, [2014-09-08T20:09:49.009335 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:49+01:00] INFO: == start httpd ===============================
+I, [2014-09-08T20:09:49.009420 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:49.009450 #1965]  INFO -- default-centos-65:   
+I, [2014-09-08T20:09:49.009478 #1965]  INFO -- default-centos-65: [0m  * log[## installing httpd ####################] action write[2014-09-08T12:09:49+01:00] INFO: Processing log[## installing httpd ####################] action write (httpd::default line 16)
+I, [2014-09-08T20:09:49.011089 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:49+01:00] INFO: ## installing httpd ####################
+I, [2014-09-08T20:09:49.011177 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:09:49.011207 #1965]  INFO -- default-centos-65:   
+I, [2014-09-08T20:09:49.011234 #1965]  INFO -- default-centos-65: [0m  * package[httpd] action install[2014-09-08T12:09:49+01:00] INFO: Processing package[httpd] action install (httpd::default line 18)
+I, [2014-09-08T20:09:52.627808 #1965]  INFO -- default-centos-65: [2014-09-08T12:09:52+01:00] INFO: package[httpd] installing httpd-2.2.15-31.el6.centos from updates repository
+I, [2014-09-08T20:10:14.427595 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:14.441809 #1965]  INFO -- default-centos-65:     [32m- install version 2.2.15-31.el6.centos of package httpd[0m
+I, [2014-09-08T20:10:14.441900 #1965]  INFO -- default-centos-65: [0m
+  * package[httpd-devel] action installI, [2014-09-08T20:10:14.459653 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:14+01:00] INFO: Processing package[httpd-devel] action install (httpd::default line 18)
+I, [2014-09-08T20:10:14.984912 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:14+01:00] INFO: package[httpd-devel] installing httpd-devel-2.2.15-31.el6.centos from updates repository
+I, [2014-09-08T20:10:52.587786 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:52.587905 #1965]  INFO -- default-centos-65:     [32m- install version 2.2.15-31.el6.centos of package httpd-devel[0m
+I, [2014-09-08T20:10:52.587947 #1965]  INFO -- default-centos-65: [0m  * log[## service httpd start #################] action write
+I, [2014-09-08T20:10:52.589985 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:52+01:00] INFO: Processing log[## service httpd start #################] action write (httpd::default line 23)
+I, [2014-09-08T20:10:52.590988 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:52+01:00] INFO: ## service httpd start #################
+I, [2014-09-08T20:10:52.591054 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:52.591084 #1965]  INFO -- default-centos-65:   
+I, [2014-09-08T20:10:52.591113 #1965]  INFO -- default-centos-65: [0m  * service[httpd] action enable
+I, [2014-09-08T20:10:52.592689 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:52+01:00] INFO: Processing service[httpd] action enable (httpd::default line 24)
+I, [2014-09-08T20:10:52.845762 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:52+01:00] INFO: service[httpd] enabled
+I, [2014-09-08T20:10:52.847708 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:52.847785 #1965]  INFO -- default-centos-65:     [32m- enable service service[httpd][0m
+I, [2014-09-08T20:10:52.847816 #1965]  INFO -- default-centos-65: [0m  * service[httpd] action start
+I, [2014-09-08T20:10:52.849108 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:52+01:00] INFO: Processing service[httpd] action start (httpd::default line 24)
+I, [2014-09-08T20:10:53.276231 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:53+01:00] INFO: service[httpd] started
+I, [2014-09-08T20:10:53.276347 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.276412 #1965]  INFO -- default-centos-65:     [32m- start service service[httpd][0m
+I, [2014-09-08T20:10:53.276441 #1965]  INFO -- default-centos-65: [0m
+I, [2014-09-08T20:10:53.278080 #1965]  INFO -- default-centos-65:   * template[/etc/httpd/conf/httpd.conf] action create[2014-09-08T12:10:53+01:00] INFO: Processing template[/etc/httpd/conf/httpd.conf] action create (httpd::default line 30)
+I, [2014-09-08T20:10:53.843714 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:53+01:00] INFO: template[/etc/httpd/conf/httpd.conf] backed up to /tmp/kitchen/backup/etc/httpd/conf/httpd.conf.chef-20140908121053.840375
+I, [2014-09-08T20:10:53.843804 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:53+01:00] INFO: template[/etc/httpd/conf/httpd.conf] updated file contents /etc/httpd/conf/httpd.conf
+I, [2014-09-08T20:10:53.843836 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.843883 #1965]  INFO -- default-centos-65:     [32m- update content in file /etc/httpd/conf/httpd.conf from beb8a6 to fbda4a[0m
+I, [2014-09-08T20:10:53.843911 #1965]  INFO -- default-centos-65:     [37m--- /etc/httpd/conf/httpd.conf	2014-07-18 07:27:59.000000000 +0100[0m
+I, [2014-09-08T20:10:53.843938 #1965]  INFO -- default-centos-65:     [37m+++ /tmp/chef-rendered-template20140908-114-1xh5r00	2014-09-08 12:10:53.732235752 +0100[0m
+I, [2014-09-08T20:10:53.843977 #1965]  INFO -- default-centos-65:     [37m@@ -58,16 +58,14 @@[0m
+I, [2014-09-08T20:10:53.844026 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.844053 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.844921 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.844981 #1965]  INFO -- default-centos-65:     [37m # PidFile: The file in which the server should record its process[0m
+I, [2014-09-08T20:10:53.845021 #1965]  INFO -- default-centos-65:     [37m-# identification number when it starts.  Note the PIDFILE variable in[0m
+I, [2014-09-08T20:10:53.845052 #1965]  INFO -- default-centos-65:     [37m-# /etc/sysconfig/httpd must be set appropriately if this location is[0m
+I, [2014-09-08T20:10:53.845079 #1965]  INFO -- default-centos-65:     [37m-# changed.[0m
+I, [2014-09-08T20:10:53.845105 #1965]  INFO -- default-centos-65:     [37m+# identification number when it starts.[0m
+I, [2014-09-08T20:10:53.845139 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.845166 #1965]  INFO -- default-centos-65:     
+I, [2014-09-08T20:10:53.846863 #1965]  INFO -- default-centos-65: [37m PidFile run/httpd.pid[0m
+I, [2014-09-08T20:10:53.846921 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.846949 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.846976 #1965]  INFO -- default-centos-65:     [37m # Timeout: The number of seconds before receives and sends time out.[0m
+I, [2014-09-08T20:10:53.847012 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.847043 #1965]  INFO -- default-centos-65:     [37m-Timeout 60[0m
+I, [2014-09-08T20:10:53.847069 #1965]  INFO -- default-centos-65:     [37m+Timeout 120[0m
+I, [2014-09-08T20:10:53.847095 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.847133 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.847169 #1965]  INFO -- default-centos-65:     [37m # KeepAlive: Whether or not to allow persistent connections (more than[0m
+I, [2014-09-08T20:10:53.847860 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.847915 #1965]  INFO -- default-centos-65:     [37m@@ -116,8 +114,8 @@[0m
+I, [2014-09-08T20:10:53.847943 #1965]  INFO -- default-centos-65:     [37m # ThreadsPerChild: constant number of worker threads in each server process[0m
+I, [2014-09-08T20:10:53.847969 #1965]  INFO -- default-centos-65:     [37m # MaxRequestsPerChild: maximum number of requests a server process serves[0m
+I, [2014-09-08T20:10:53.848008 #1965]  INFO -- default-centos-65:     [37m <IfModule worker.c>[0m
+I, [2014-09-08T20:10:53.848038 #1965]  INFO -- default-centos-65:     [37m-StartServers         4[0m
+I, [2014-09-08T20:10:53.848064 #1965]  INFO -- default-centos-65:     [37m-MaxClients         300[0m
+I, [2014-09-08T20:10:53.849931 #1965]  INFO -- default-centos-65:     [37m+StartServers         2[0m
+I, [2014-09-08T20:10:53.849990 #1965]  INFO -- default-centos-65:     [37m+MaxClients         150[0m
+I, [2014-09-08T20:10:53.850018 #1965]  INFO -- default-centos-65:     [37m MinSpareThreads     25[0m
+I, [2014-09-08T20:10:53.850044 #1965]  INFO -- default-centos-65:     [37m MaxSpareThreads     75 [0m
+I, [2014-09-08T20:10:53.850069 #1965]  INFO -- default-centos-65:     [37m ThreadsPerChild     25[0m
+I, [2014-09-08T20:10:53.850095 #1965]  INFO -- default-centos-65:     [37m@@ -148,26 +146,26 @@[0m
+I, [2014-09-08T20:10:53.850120 #1965]  INFO -- default-centos-65:     [37m # LoadModule foo_module modules/mod_foo.so[0m
+I, [2014-09-08T20:10:53.850146 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.850172 #1965]  INFO -- default-centos-65:     [37m LoadModule auth_basic_module modules/mod_auth_basic.so[0m
+I, [2014-09-08T20:10:53.850219 #1965]  INFO -- default-centos-65:     [37m-LoadModule auth_digest_module modules/mod_auth_digest.so[0m
+I, [2014-09-08T20:10:53.850255 #1965]  INFO -- default-centos-65:     [37m+#LoadModule auth_digest_module modules/mod_auth_digest.so[0m
+I, [2014-09-08T20:10:53.850282 #1965]  INFO -- default-centos-65:     [37m LoadModule authn_file_module modules/mod_authn_file.so[0m
+I, [2014-09-08T20:10:53.850308 #1965]  INFO -- default-centos-65:     [37m-LoadModule authn_alias_module modules/mod_authn_alias.so[0m
+I, [2014-09-08T20:10:53.850333 #1965]  INFO -- default-centos-65:     [37m-LoadModule authn_anon_module modules/mod_authn_anon.so[0m
+I, [2014-09-08T20:10:53.850913 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.850968 #1965]  INFO -- default-centos-65:     [37m-LoadModule authn_dbm_module modules/mod_authn_dbm.so[0m
+I, [2014-09-08T20:10:53.851626 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.851670 #1965]  INFO -- default-centos-65:     [37m-LoadModule authn_default_module modules/mod_authn_default.so[0m
+I, [2014-09-08T20:10:53.851699 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authn_alias_module modules/mod_authn_alias.so[0m
+I, [2014-09-08T20:10:53.851733 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authn_anon_module modules/mod_authn_anon.so[0m
+I, [2014-09-08T20:10:53.851776 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authn_dbm_module modules/mod_authn_dbm.so[0m
+I, [2014-09-08T20:10:53.851820 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authn_default_module modules/mod_authn_default.so[0m
+I, [2014-09-08T20:10:53.853928 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.854036 #1965]  INFO -- default-centos-65:     [37m LoadModule authz_host_module modules/mod_authz_host.so[0m
+I, [2014-09-08T20:10:53.854064 #1965]  INFO -- default-centos-65:     [37m LoadModule authz_user_module modules/mod_authz_user.so[0m
+I, [2014-09-08T20:10:53.854113 #1965]  INFO -- default-centos-65:     [37m-LoadModule authz_owner_module modules/mod_authz_owner.so[0m
+I, [2014-09-08T20:10:53.854160 #1965]  INFO -- default-centos-65:     [37m-LoadModule authz_groupfile_module modules/mod_authz_groupfile.so[0m
+I, [2014-09-08T20:10:53.854191 #1965]  INFO -- default-centos-65:     [37m-LoadModule authz_dbm_module modules/mod_authz_dbm.so[0m
+I, [2014-09-08T20:10:53.854218 #1965]  INFO -- default-centos-65:     [37m-LoadModule authz_default_module modules/mod_authz_default.so[0m
+I, [2014-09-08T20:10:53.854260 #1965]  INFO -- default-centos-65:     [37m-LoadModule ldap_module modules/mod_ldap.so[0m
+I, [2014-09-08T20:10:53.854286 #1965]  INFO -- default-centos-65:     [37m-LoadModule authnz_ldap_module modules/mod_authnz_ldap.so[0m
+I, [2014-09-08T20:10:53.854312 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authz_owner_module modules/mod_authz_owner.so[0m
+I, [2014-09-08T20:10:53.854338 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authz_groupfile_module modules/mod_authz_groupfile.so[0m
+I, [2014-09-08T20:10:53.854364 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authz_dbm_module modules/mod_authz_dbm.so[0m
+I, [2014-09-08T20:10:53.854389 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authz_default_module modules/mod_authz_default.so[0m
+I, [2014-09-08T20:10:53.854439 #1965]  INFO -- default-centos-65:     [37m+#LoadModule ldap_module modules/mod_ldap.so[0m
+I, [2014-09-08T20:10:53.854467 #1965]  INFO -- default-centos-65:     [37m+#LoadModule authnz_ldap_module modules/mod_authnz_ldap.so[0m
+I, [2014-09-08T20:10:53.855678 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.855742 #1965]  INFO -- default-centos-65:     [37m LoadModule include_module modules/mod_include.so[0m
+I, [2014-09-08T20:10:53.855771 #1965]  INFO -- default-centos-65:     [37m LoadModule log_config_module modules/mod_log_config.so[0m
+I, [2014-09-08T20:10:53.855798 #1965]  INFO -- default-centos-65:     [37m-LoadModule logio_module modules/mod_logio.so[0m
+I, [2014-09-08T20:10:53.855823 #1965]  INFO -- default-centos-65:     [37m+#LoadModule logio_module modules/mod_logio.so[0m
+I, [2014-09-08T20:10:53.855850 #1965]  INFO -- default-centos-65:     [37m LoadModule env_module modules/mod_env.so[0m
+I, [2014-09-08T20:10:53.855888 #1965]  INFO -- default-centos-65:     [37m-LoadModule ext_filter_module modules/mod_ext_filter.so[0m
+I, [2014-09-08T20:10:53.855917 #1965]  INFO -- default-centos-65:     [37m-LoadModule mime_magic_module modules/mod_mime_magic.so[0m
+I, [2014-09-08T20:10:53.855959 #1965]  INFO -- default-centos-65:     [37m+#LoadModule ext_filter_module modules/mod_ext_filter.so[0m
+I, [2014-09-08T20:10:53.855985 #1965]  INFO -- default-centos-65:     [37m+#LoadModule mime_magic_module modules/mod_mime_magic.so[0m
+I, [2014-09-08T20:10:53.856011 #1965]  INFO -- default-centos-65:     [37m LoadModule expires_module modules/mod_expires.so[0m
+I, [2014-09-08T20:10:53.856045 #1965]  INFO -- default-centos-65:     [37m LoadModule deflate_module modules/mod_deflate.so[0m
+I, [2014-09-08T20:10:53.857847 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.857904 #1965]  INFO -- default-centos-65:     [37m LoadModule headers_module modules/mod_headers.so[0m
+I, [2014-09-08T20:10:53.857941 #1965]  INFO -- default-centos-65:     [37m@@ -177,44 +175,36 @@[0m
+I, [2014-09-08T20:10:53.857968 #1965]  INFO -- default-centos-65:     [37m LoadModule dav_module modules/mod_dav.so[0m
+I, [2014-09-08T20:10:53.858012 #1965]  INFO -- default-centos-65:     [37m LoadModule status_module modules/mod_status.so[0m
+I, [2014-09-08T20:10:53.858039 #1965]  INFO -- default-centos-65:     [37m LoadModule autoindex_module modules/mod_autoindex.so[0m
+I, [2014-09-08T20:10:53.858076 #1965]  INFO -- default-centos-65:     
+I, [2014-09-08T20:10:53.858830 #1965]  INFO -- default-centos-65: [37m-LoadModule info_module modules/mod_info.so[0m
+I, [2014-09-08T20:10:53.858910 #1965]  INFO -- default-centos-65:     [37m-LoadModule dav_fs_module modules/mod_dav_fs.so[0m
+I, [2014-09-08T20:10:53.858939 #1965]  INFO -- default-centos-65:     [37m+#LoadModule info_module modules/mod_info.so[0m
+I, [2014-09-08T20:10:53.858965 #1965]  INFO -- default-centos-65:     [37m+#LoadModule dav_fs_module modules/mod_dav_fs.so[0m
+I, [2014-09-08T20:10:53.858991 #1965]  INFO -- default-centos-65:     [37m LoadModule vhost_alias_module modules/mod_vhost_alias.so[0m
+I, [2014-09-08T20:10:53.859017 #1965]  INFO -- default-centos-65:     [37m LoadModule negotiation_module modules/mod_negotiation.so[0m
+I, [2014-09-08T20:10:53.859043 #1965]  INFO -- default-centos-65:     [37m LoadModule dir_module modules/mod_dir.so[0m
+I, [2014-09-08T20:10:53.859069 #1965]  INFO -- default-centos-65:     [37m LoadModule actions_module modules/mod_actions.so[0m
+I, [2014-09-08T20:10:53.859111 #1965]  INFO -- default-centos-65:     [37m-LoadModule speling_module modules/mod_speling.so[0m
+I, [2014-09-08T20:10:53.859151 #1965]  INFO -- default-centos-65:     [37m-LoadModule userdir_module modules/mod_userdir.so[0m
+I, [2014-09-08T20:10:53.859196 #1965]  INFO -- default-centos-65:     [37m+#LoadModule speling_module modules/mod_speling.so[0m
+I, [2014-09-08T20:10:53.859224 #1965]  INFO -- default-centos-65:     [37m+#LoadModule userdir_module modules/mod_userdir.so[0m
+I, [2014-09-08T20:10:53.860860 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.860916 #1965]  INFO -- default-centos-65:     [37m LoadModule alias_module modules/mod_alias.so[0m
+    [37m-LoadModule substitute_module modules/mod_substitute.so[0mI, [2014-09-08T20:10:53.862930 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:53.862997 #1965]  INFO -- default-centos-65:     [37m LoadModule rewrite_module modules/mod_rewrite.so[0m
+I, [2014-09-08T20:10:53.863025 #1965]  INFO -- default-centos-65:     [37m LoadModule proxy_module modules/mod_proxy.so[0m
+I, [2014-09-08T20:10:53.863051 #1965]  INFO -- default-centos-65:     [37m-LoadModule proxy_balancer_module modules/mod_proxy_balancer.so[0m
+I, [2014-09-08T20:10:53.863095 #1965]  INFO -- default-centos-65:     [37m-LoadModule proxy_ftp_module modules/mod_proxy_ftp.so[0m
+I, [2014-09-08T20:10:53.863122 #1965]  INFO -- default-centos-65:     [37m+#LoadModule proxy_balancer_module modules/mod_proxy_balancer.so[0m
+I, [2014-09-08T20:10:53.863148 #1965]  INFO -- default-centos-65:     [37m+#LoadModule proxy_ftp_module modules/mod_proxy_ftp.so[0m
+I, [2014-09-08T20:10:53.863376 #1965]  INFO -- default-centos-65:     [37m LoadModule proxy_http_module modules/mod_proxy_http.so[0m
+I, [2014-09-08T20:10:53.863428 #1965]  INFO -- default-centos-65:     [37m-LoadModule proxy_ajp_module modules/mod_proxy_ajp.so[0m
+I, [2014-09-08T20:10:53.863455 #1965]  INFO -- default-centos-65:     [37m-LoadModule proxy_connect_module modules/mod_proxy_connect.so[0m
+I, [2014-09-08T20:10:53.863480 #1965]  INFO -- default-centos-65:     [37m+#LoadModule proxy_connect_module modules/mod_proxy_connect.so[0m
+I, [2014-09-08T20:10:53.863504 #1965]  INFO -- default-centos-65:     [37m LoadModule cache_module modules/mod_cache.so[0m
+I, [2014-09-08T20:10:53.863528 #1965]  INFO -- default-centos-65:     [37m-LoadModule suexec_module modules/mod_suexec.so[0m
+I, [2014-09-08T20:10:53.863571 #1965]  INFO -- default-centos-65:     [37m-LoadModule disk_cache_module modules/mod_disk_cache.so[0m
+I, [2014-09-08T20:10:53.863597 #1965]  INFO -- default-centos-65:     [37m+#LoadModule suexec_module modules/mod_suexec.so[0m
+I, [2014-09-08T20:10:53.863648 #1965]  INFO -- default-centos-65:     [37m+#LoadModule disk_cache_module modules/mod_disk_cache.so[0m
+I, [2014-09-08T20:10:53.863675 #1965]  INFO -- default-centos-65:     [37m+#LoadModule file_cache_module modules/mod_file_cache.so[0m
+I, [2014-09-08T20:10:53.863732 #1965]  INFO -- default-centos-65:     [37m+#LoadModule mem_cache_module modules/mod_mem_cache.so[0m
+I, [2014-09-08T20:10:53.863774 #1965]  INFO -- default-centos-65:     [37m LoadModule cgi_module modules/mod_cgi.so[0m
+I, [2014-09-08T20:10:53.863799 #1965]  INFO -- default-centos-65:     [37m-LoadModule version_module modules/mod_version.so[0m
+I, [2014-09-08T20:10:53.863833 #1965]  INFO -- default-centos-65:     [37m+#LoadModule version_module modules/mod_version.so[0m
+I, [2014-09-08T20:10:53.863857 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.863894 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.863918 #1965]  INFO -- default-centos-65:     [37m # The following modules are not loaded by default:[0m
+I, [2014-09-08T20:10:53.863964 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.863991 #1965]  INFO -- default-centos-65:     [37m-#LoadModule asis_module modules/mod_asis.so[0m
+I, [2014-09-08T20:10:53.878748 #1965]  INFO -- default-centos-65:     [37m-#LoadModule authn_dbd_module modules/mod_authn_dbd.so[0m
+I, [2014-09-08T20:10:53.879004 #1965]  INFO -- default-centos-65:     [37m #LoadModule cern_meta_module modules/mod_cern_meta.so[0m
+I, [2014-09-08T20:10:53.879187 #1965]  INFO -- default-centos-65:     [37m-#LoadModule cgid_module modules/mod_cgid.so[0m
+I, [2014-09-08T20:10:53.879680 #1965]  INFO -- default-centos-65:     [37m-#LoadModule dbd_module modules/mod_dbd.so[0m
+I, [2014-09-08T20:10:53.879813 #1965]  INFO -- default-centos-65:     [37m-#LoadModule dumpio_module modules/mod_dumpio.so[0m
+I, [2014-09-08T20:10:53.879921 #1965]  INFO -- default-centos-65:     [37m-#LoadModule filter_module modules/mod_filter.so[0m
+I, [2014-09-08T20:10:53.879965 #1965]  INFO -- default-centos-65:     [37m-#LoadModule ident_module modules/mod_ident.so[0m
+I, [2014-09-08T20:10:53.880089 #1965]  INFO -- default-centos-65:     [37m-#LoadModule log_forensic_module modules/mod_log_forensic.so[0m
+I, [2014-09-08T20:10:53.880147 #1965]  INFO -- default-centos-65:     [37m-#LoadModule unique_id_module modules/mod_unique_id.so[0m
+I, [2014-09-08T20:10:53.880240 #1965]  INFO -- default-centos-65:     [37m-#[0m
+I, [2014-09-08T20:10:53.880273 #1965]  INFO -- default-centos-65:     [37m+#LoadModule asis_module modules/mod_asis.so[0m
+I, [2014-09-08T20:10:53.880303 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.880332 #1965]  INFO -- default-centos-65:     [37m+[0m
+I, [2014-09-08T20:10:53.880362 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.880484 #1965]  INFO -- default-centos-65:     [37m # Load config files from the config directory "/etc/httpd/conf.d".[0m
+I, [2014-09-08T20:10:53.880484 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.880484 #1965]  INFO -- default-centos-65:     [37m@@ -225,7 +215,7 @@[0m
+I, [2014-09-08T20:10:53.880495 #1965]  INFO -- default-centos-65:     [37m # information (ExtendedStatus On) or just basic information (ExtendedStatus[0m
+I, [2014-09-08T20:10:53.880525 #1965]  INFO -- default-centos-65:     [37m # Off) when the "server-status" handler is called. The default is Off.[0m
+I, [2014-09-08T20:10:53.880551 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.880605 #1965]  INFO -- default-centos-65:     [37m-#ExtendedStatus On[0m
+I, [2014-09-08T20:10:53.880633 #1965]  INFO -- default-centos-65:     [37m+ExtendedStatus On[0m
+I, [2014-09-08T20:10:53.880671 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.880699 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.880794 #1965]  INFO -- default-centos-65:     [37m # If you wish httpd to run as a different user or group, you must run[0m
+I, [2014-09-08T20:10:53.880840 #1965]  INFO -- default-centos-65:     [37m@@ -328,7 +318,7 @@[0m
+I, [2014-09-08T20:10:53.880906 #1965]  INFO -- default-centos-65:     [37m # http://httpd.apache.org/docs/2.2/mod/core.html#options[0m
+I, [2014-09-08T20:10:53.880933 #1965]  INFO -- default-centos-65:     [37m # for more information.[0m
+I, [2014-09-08T20:10:53.880959 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.880985 #1965]  INFO -- default-centos-65:     [37m-    Options Indexes FollowSymLinks[0m
+I, [2014-09-08T20:10:53.881011 #1965]  INFO -- default-centos-65:     [37m+    Options FollowSymLinks[0m
+I, [2014-09-08T20:10:53.881036 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.881061 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.881086 #1965]  INFO -- default-centos-65:     [37m # AllowOverride controls what directives may be placed in .htaccess files.[0m
+I, [2014-09-08T20:10:53.881123 #1965]  INFO -- default-centos-65:     [37m@@ -363,11 +353,11 @@[0m
+I, [2014-09-08T20:10:53.881154 #1965]  INFO -- default-centos-65:     [37m     # of a username on the system (depending on home directory[0m
+I, [2014-09-08T20:10:53.881180 #1965]  INFO -- default-centos-65:     [37m     # permissions).[0m
+I, [2014-09-08T20:10:53.881238 #1965]  INFO -- default-centos-65:     [37m     #[0m
+I, [2014-09-08T20:10:53.881238 #1965]  INFO -- default-centos-65:     [37m-    UserDir disabled[0m
+I, [2014-09-08T20:10:53.881820 #1965]  INFO -- default-centos-65:     [37m+    UserDir disable[0m
+I, [2014-09-08T20:10:53.881898 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.881950 #1965]  INFO -- default-centos-65:     [37m     #[0m
+I, [2014-09-08T20:10:53.881999 #1965]  INFO -- default-centos-65:     
+I, [2014-09-08T20:10:53.885546 #1965]  INFO -- default-centos-65: [37m     # To enable requests to /~user/ to serve the user's public_html[0m
+I, [2014-09-08T20:10:53.885672 #1965]  INFO -- default-centos-65:     [37m-    # directory, remove the "UserDir disabled" line above, and uncomment[0m
+I, [2014-09-08T20:10:53.885711 #1965]  INFO -- default-centos-65:     [37m+    # directory, remove the "UserDir disable" line above, and uncomment[0m
+I, [2014-09-08T20:10:53.885763 #1965]  INFO -- default-centos-65:     [37m     # the following line instead:[0m
+I, [2014-09-08T20:10:53.885789 #1965]  INFO -- default-centos-65:     [37m     # [0m
+I, [2014-09-08T20:10:53.885813 #1965]  INFO -- default-centos-65:     [37m     #UserDir public_html[0m
+I, [2014-09-08T20:10:53.885837 #1965]  INFO -- default-centos-65:     [37m@@ -399,7 +389,7 @@[0m
+I, [2014-09-08T20:10:53.885861 #1965]  INFO -- default-centos-65:     [37m # negotiated documents.  The MultiViews Option can be used for the [0m
+I, [2014-09-08T20:10:53.885910 #1965]  INFO -- default-centos-65:     [37m # same purpose, but it is much slower.[0m
+I, [2014-09-08T20:10:53.885953 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.885978 #1965]  INFO -- default-centos-65:     [37m-DirectoryIndex index.html index.html.var[0m
+I, [2014-09-08T20:10:53.886038 #1965]  INFO -- default-centos-65:     [37m+DirectoryIndex index.htm index.html index.html.var mbody.htm[0m
+I, [2014-09-08T20:10:53.886110 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.886165 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.886196 #1965]  INFO -- default-centos-65:     [37m # AccessFileName: The name of the file to look for in each directory[0m
+I, [2014-09-08T20:10:53.886223 #1965]  INFO -- default-centos-65:     [37m@@ -415,7 +405,6 @@[0m
+I, [2014-09-08T20:10:53.886259 #1965]  INFO -- default-centos-65:     [37m <Files ~ "^\.ht">[0m
+I, [2014-09-08T20:10:53.886302 #1965]  INFO -- default-centos-65:     [37m     Order allow,deny[0m
+I, [2014-09-08T20:10:53.886331 #1965]  INFO -- default-centos-65:     [37m     Deny from all[0m
+I, [2014-09-08T20:10:53.886375 #1965]  INFO -- default-centos-65:     [37m-    Satisfy All[0m
+I, [2014-09-08T20:10:53.886402 #1965]  INFO -- default-centos-65:     [37m </Files>[0m
+I, [2014-09-08T20:10:53.886427 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.886453 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.886478 #1965]  INFO -- default-centos-65:     [37m@@ -510,7 +499,7 @@[0m
+I, [2014-09-08T20:10:53.886530 #1965]  INFO -- default-centos-65:     [37m # define per-<VirtualHost> access logfiles, transactions will be[0m
+I, [2014-09-08T20:10:53.886547 #1965]  INFO -- default-centos-65:     [37m # logged therein and *not* in this file.[0m
+I, [2014-09-08T20:10:53.886547 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.886547 #1965]  INFO -- default-centos-65:     [37m-#CustomLog logs/access_log common[0m
+I, [2014-09-08T20:10:53.886547 #1965]  INFO -- default-centos-65:     [37m+#CustomLog logs/access_log aacombinedCookie[0m
+I, [2014-09-08T20:10:53.886547 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.886547 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.886646 #1965]  INFO -- default-centos-65:     [37m # If you would like to have separate agent and referer logfiles, uncomment[0m
+I, [2014-09-08T20:10:53.886694 #1965]  INFO -- default-centos-65:     [37m@@ -523,7 +512,7 @@[0m
+I, [2014-09-08T20:10:53.886725 #1965]  INFO -- default-centos-65:     [37m # For a single logfile with access, agent, and referer information[0m
+I, [2014-09-08T20:10:53.886798 #1965]  INFO -- default-centos-65:     [37m # (Combined Logfile Format), use the following directive:[0m
+I, [2014-09-08T20:10:53.886839 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.886870 #1965]  INFO -- default-centos-65:     [37m-CustomLog logs/access_log combined[0m
+I, [2014-09-08T20:10:53.886923 #1965]  INFO -- default-centos-65:     [37m+CustomLog logs/access_log aacombined[0m
+I, [2014-09-08T20:10:53.886962 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.886995 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.887025 #1965]  INFO -- default-centos-65:     [37m # Optionally add a line containing the server version and virtual host[0m
+I, [2014-09-08T20:10:53.887055 #1965]  INFO -- default-centos-65:     [37m@@ -533,7 +522,9 @@[0m
+I, [2014-09-08T20:10:53.887116 #1965]  INFO -- default-centos-65:     [37m # Set to "EMail" to also include a mailto: link to the ServerAdmin.[0m
+I, [2014-09-08T20:10:53.887153 #1965]  INFO -- default-centos-65:     [37m # Set to one of:  On | Off | EMail[0m
+I, [2014-09-08T20:10:53.887221 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.887240 #1965]  INFO -- default-centos-65:     [37m-ServerSignature On[0m
+I, [2014-09-08T20:10:53.887776 #1965]  INFO -- default-centos-65:     [37m+#ServerSignature On[0m
+I, [2014-09-08T20:10:53.887850 #1965]  INFO -- default-centos-65:     [37m+# hanada[0m
+I, [2014-09-08T20:10:53.887916 #1965]  INFO -- default-centos-65:     [37m+ServerSignature Off[0m
+I, [2014-09-08T20:10:53.887997 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.888070 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.888122 #1965]  INFO -- default-centos-65:     [37m # Aliases: Add here as many aliases as you need (with no limit). The format is [0m
+I, [2014-09-08T20:10:53.888166 #1965]  INFO -- default-centos-65:     [37m@@ -551,7 +542,7 @@[0m
+I, [2014-09-08T20:10:53.888208 #1965]  INFO -- default-centos-65:     [37m Alias /icons/ "/var/www/icons/"[0m
+I, [2014-09-08T20:10:53.888314 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.888357 #1965]  INFO -- default-centos-65:     [37m <Directory "/var/www/icons">[0m
+I, [2014-09-08T20:10:53.888384 #1965]  INFO -- default-centos-65:     [37m-    Options Indexes MultiViews FollowSymLinks[0m
+I, [2014-09-08T20:10:53.888410 #1965]  INFO -- default-centos-65:     [37m+    Options Indexes MultiViews[0m
+I, [2014-09-08T20:10:53.888441 #1965]  INFO -- default-centos-65:     [37m     AllowOverride None[0m
+I, [2014-09-08T20:10:53.888494 #1965]  INFO -- default-centos-65:     [37m     Order allow,deny[0m
+I, [2014-09-08T20:10:53.888521 #1965]  INFO -- default-centos-65:     [37m     Allow from all[0m
+I, [2014-09-08T20:10:53.888547 #1965]  INFO -- default-centos-65:     [37m@@ -601,7 +592,7 @@[0m
+I, [2014-09-08T20:10:53.888583 #1965]  INFO -- default-centos-65:     [37m # IndexOptions: Controls the appearance of server-generated directory[0m
+I, [2014-09-08T20:10:53.888629 #1965]  INFO -- default-centos-65:     [37m # listings.[0m
+I, [2014-09-08T20:10:53.888675 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.888702 #1965]  INFO -- default-centos-65:     [37m-IndexOptions FancyIndexing VersionSort NameWidth=* HTMLTable Charset=UTF-8[0m
+I, [2014-09-08T20:10:53.888728 #1965]  INFO -- default-centos-65:     [37m+IndexOptions FancyIndexing VersionSort NameWidth=* HTMLTable[0m
+I, [2014-09-08T20:10:53.888753 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.888793 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.888831 #1965]  INFO -- default-centos-65:     [37m # AddIcon* directives tell the server which icon to show for different[0m
+I, [2014-09-08T20:10:53.888860 #1965]  INFO -- default-centos-65:     [37m@@ -780,12 +771,6 @@[0m
+I, [2014-09-08T20:10:53.888907 #1965]  INFO -- default-centos-65:     [37m AddType application/x-gzip .gz .tgz[0m
+I, [2014-09-08T20:10:53.888933 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.888958 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.888997 #1965]  INFO -- default-centos-65:     [37m-#   MIME-types for downloading Certificates and CRLs[0m
+I, [2014-09-08T20:10:53.889023 #1965]  INFO -- default-centos-65:     [37m-#[0m
+I, [2014-09-08T20:10:53.889064 #1965]  INFO -- default-centos-65:     [37m-AddType application/x-x509-ca-cert .crt[0m
+I, [2014-09-08T20:10:53.889098 #1965]  INFO -- default-centos-65:     [37m-AddType application/x-pkcs7-crl    .crl[0m
+I, [2014-09-08T20:10:53.889148 #1965]  INFO -- default-centos-65:     [37m-[0m
+I, [2014-09-08T20:10:53.889186 #1965]  INFO -- default-centos-65:     [37m-#[0m
+I, [2014-09-08T20:10:53.889224 #1965]  INFO -- default-centos-65:     [37m # AddHandler allows you to map certain file extensions to "handlers":[0m
+I, [2014-09-08T20:10:53.889251 #1965]  INFO -- default-centos-65:     [37m # actions unrelated to filetype. These can be either built into the server[0m
+I, [2014-09-08T20:10:53.889277 #1965]  INFO -- default-centos-65:     [37m # or added with the Action directive (see below)[0m
+I, [2014-09-08T20:10:53.889313 #1965]  INFO -- default-centos-65:     [37m@@ -793,7 +778,7 @@[0m
+I, [2014-09-08T20:10:53.889339 #1965]  INFO -- default-centos-65:     [37m # To use CGI scripts outside of ScriptAliased directories:[0m
+I, [2014-09-08T20:10:53.889375 #1965]  INFO -- default-centos-65:     [37m # (You will also need to add "ExecCGI" to the "Options" directive.)[0m
+I, [2014-09-08T20:10:53.889415 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.889441 #1965]  INFO -- default-centos-65:     [37m-#AddHandler cgi-script .cgi[0m
+I, [2014-09-08T20:10:53.889490 #1965]  INFO -- default-centos-65:     [37m+AddHandler cgi-script .cgi[0m
+I, [2014-09-08T20:10:53.889520 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.889546 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.889581 #1965]  INFO -- default-centos-65:     [37m # For files that include their own HTTP headers:[0m
+I, [2014-09-08T20:10:53.889581 #1965]  INFO -- default-centos-65:     
+I, [2014-09-08T20:10:53.892361 #1965]  INFO -- default-centos-65: [37m@@ -814,7 +799,8 @@[0m
+I, [2014-09-08T20:10:53.892432 #1965]  INFO -- default-centos-65:     [37m # (You will also need to add "Includes" to the "Options" directive.)[0m
+I, [2014-09-08T20:10:53.892522 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.892553 #1965]  INFO -- default-centos-65:     [37m AddType text/html .shtml[0m
+I, [2014-09-08T20:10:53.892581 #1965]  INFO -- default-centos-65:     [37m-AddOutputFilter INCLUDES .shtml[0m
+I, [2014-09-08T20:10:53.892619 #1965]  INFO -- default-centos-65:     [37m+#AddOutputFilter INCLUDES .shtml[0m
+I, [2014-09-08T20:10:53.892648 #1965]  INFO -- default-centos-65:     [37m+AddOutputFilter INCLUDES .html .txt .php[0m
+I, [2014-09-08T20:10:53.892675 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.892701 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.892751 #1965]  INFO -- default-centos-65:     [37m # Action lets you define media types that will execute a script whenever[0m
+I, [2014-09-08T20:10:53.892789 #1965]  INFO -- default-centos-65:     [37m@@ -918,12 +904,16 @@[0m
+I, [2014-09-08T20:10:53.892816 #1965]  INFO -- default-centos-65:     [37m # with the URL of http://servername/server-status[0m
+I, [2014-09-08T20:10:53.892850 #1965]  INFO -- default-centos-65:     [37m # Change the ".example.com" to match your domain to enable.[0m
+I, [2014-09-08T20:10:53.892875 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.892905 #1965]  INFO -- default-centos-65:     [37m-#<Location /server-status>[0m
+I, [2014-09-08T20:10:53.892936 #1965]  INFO -- default-centos-65:     [37m-#    SetHandler server-status[0m
+I, [2014-09-08T20:10:53.892961 #1965]  INFO -- default-centos-65:     [37m-#    Order deny,allow[0m
+I, [2014-09-08T20:10:53.892985 #1965]  INFO -- default-centos-65:     [37m-#    Deny from all[0m
+I, [2014-09-08T20:10:53.893009 #1965]  INFO -- default-centos-65:     [37m-#    Allow from .example.com[0m
+I, [2014-09-08T20:10:53.893034 #1965]  INFO -- default-centos-65:     [37m-#</Location>[0m
+I, [2014-09-08T20:10:53.893058 #1965]  INFO -- default-centos-65:     [37m+<VirtualHost *:80>[0m
+I, [2014-09-08T20:10:53.893082 #1965]  INFO -- default-centos-65:     [37m+ServerName dummy[0m
+I, [2014-09-08T20:10:53.893116 #1965]  INFO -- default-centos-65:     [37m+DocumentRoot /var/www/html[0m
+I, [2014-09-08T20:10:53.893149 #1965]  INFO -- default-centos-65:     [37m+<Location /server-status>[0m
+I, [2014-09-08T20:10:53.893173 #1965]  INFO -- default-centos-65:     [37m+    SetHandler server-status[0m
+I, [2014-09-08T20:10:53.893198 #1965]  INFO -- default-centos-65:     [37m+    Order deny,allow[0m
+I, [2014-09-08T20:10:53.893232 #1965]  INFO -- default-centos-65:     [37m+    Deny from all[0m
+I, [2014-09-08T20:10:53.893318 #1965]  INFO -- default-centos-65:     [37m+    Allow from 127.0.0.1[0m
+I, [2014-09-08T20:10:53.893343 #1965]  INFO -- default-centos-65:     [37m+</Location>[0m
+I, [2014-09-08T20:10:53.893368 #1965]  INFO -- default-centos-65:     [37m+</VirtualHost>[0m
+I, [2014-09-08T20:10:53.893394 #1965]  INFO -- default-centos-65:     [37m [0m
+I, [2014-09-08T20:10:53.893418 #1965]  INFO -- default-centos-65:     [37m #[0m
+I, [2014-09-08T20:10:53.893442 #1965]  INFO -- default-centos-65:     [37m # Allow remote server configuration reports, with the URL of[0m
+I, [2014-09-08T20:10:53.893466 #1965]  INFO -- default-centos-65:     [37m@@ -1007,4 +997,9 @@[0m
+I, [2014-09-08T20:10:53.893490 #1965]  INFO -- default-centos-65:     [37m #    ErrorLog logs/dummy-host.example.com-error_log[0m
+I, [2014-09-08T20:10:53.893515 #1965]  INFO -- default-centos-65:     [37m #    CustomLog logs/dummy-host.example.com-access_log common[0m
+I, [2014-09-08T20:10:53.893550 #1965]  INFO -- default-centos-65:     [37m #</VirtualHost>[0m
+I, [2014-09-08T20:10:53.893585 #1965]  INFO -- default-centos-65:     [37m+[0m
+I, [2014-09-08T20:10:53.893610 #1965]  INFO -- default-centos-65:     [37m+#ServerName _default_[0m
+I, [2014-09-08T20:10:53.893634 #1965]  INFO -- default-centos-65:     [37m+[0m
+I, [2014-09-08T20:10:53.893658 #1965]  INFO -- default-centos-65:     [37m+NameVirtualHost *:80[0m
+I, [2014-09-08T20:10:53.893703 #1965]  INFO -- default-centos-65:     [37m+#NameVirtualHost *:443[0m
+I, [2014-09-08T20:10:54.016852 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:54.016856 #1965]  INFO -- default-centos-65: [0m
+I, [2014-09-08T20:10:54.018868 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:54+01:00] INFO: template[/etc/httpd/conf/httpd.conf] not queuing delayed action restart on service[httpd] (delayed), as it's already been queued
+I, [2014-09-08T20:10:54.018939 #1965]  INFO -- default-centos-65:   * log[== httpd, done =============================] action write[2014-09-08T12:10:54+01:00] INFO: Processing log[== httpd, done =============================] action write (httpd::default line 35)
+I, [2014-09-08T20:10:54.020002 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:54+01:00] INFO: == httpd, done =============================
+I, [2014-09-08T20:10:54.020066 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:54.020094 #1965]  INFO -- default-centos-65:   
+I, [2014-09-08T20:10:54.020120 #1965]  INFO -- default-centos-65: [0m
+I, [2014-09-08T20:10:54.021792 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:54+01:00] INFO: [template[/etc/httpd/conf/httpd.conf]] sending restart action to service[httpd] (delayed)
+I, [2014-09-08T20:10:54.021852 #1965]  INFO -- default-centos-65:   * service[httpd] action restart[2014-09-08T12:10:54+01:00] INFO: Processing service[httpd] action restart (httpd::default line 24)
+I, [2014-09-08T20:10:54.529522 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:54+01:00] INFO: service[httpd] restarted
+I, [2014-09-08T20:10:54.529615 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:10:54.529646 #1965]  INFO -- default-centos-65:     [32m- restart service service[httpd][0m
+I, [2014-09-08T20:10:54.529673 #1965]  INFO -- default-centos-65: [0m
+I, [2014-09-08T20:10:54.530709 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:54+01:00] INFO: Chef Run complete in 65.535954493 seconds
+I, [2014-09-08T20:10:54.530783 #1965]  INFO -- default-centos-65: [0m
+I, [2014-09-08T20:10:54.530844 #1965]  INFO -- default-centos-65: Running handlers:[0m
+I, [2014-09-08T20:10:54.530872 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:54+01:00] INFO: Running report handlers
+I, [2014-09-08T20:10:54.530898 #1965]  INFO -- default-centos-65: Running handlers complete
+I, [2014-09-08T20:10:54.530923 #1965]  INFO -- default-centos-65: [0m
+I, [2014-09-08T20:10:54.531970 #1965]  INFO -- default-centos-65: [2014-09-08T12:10:54+01:00] INFO: Report handlers complete
+I, [2014-09-08T20:10:54.532044 #1965]  INFO -- default-centos-65: Chef Client finished, 10/10 resources updated in 68.156585131 seconds[0m
+I, [2014-09-08T20:10:55.064936 #1965]  INFO -- default-centos-65: Finished converging <default-centos-65> (3m26.65s).
+I, [2014-09-08T20:10:55.065084 #1965]  INFO -- default-centos-65: -----> Setting up <default-centos-65>...
+Fetching: thor-0.19.0.gemFetching: thor-0.19.0.gem ( 12%)Fetching: thor-0.19.0.gem ( 16%)Fetching: thor-0.19.0.gem ( 22%)Fetching: thor-0.19.0.gem ( 30%)Fetching: thor-0.19.0.gem ( 33%)Fetching: thor-0.19.0.gem ( 45%)Fetching: thor-0.19.0.gem ( 49%)Fetching: thor-0.19.0.gem ( 53%)Fetching: thor-0.19.0.gem ( 61%)Fetching: thor-0.19.0.gem ( 64%)Fetching: thor-0.19.0.gem ( 68%)Fetching: thor-0.19.0.gem ( 76%)Fetching: thor-0.19.0.gem ( 80%)Fetching: thor-0.19.0.gem ( 84%)Fetching: thor-0.19.0.gem ( 91%)Fetching: thor-0.19.0.gem (100%)I, [2014-09-08T20:11:33.636564 #1965]  INFO -- default-centos-65: Fetching: thor-0.19.0.gem (100%)
+Fetching: busser-0.6.2.gemFetching: busser-0.6.2.gem ( 31%)Fetching: busser-0.6.2.gem ( 46%)Fetching: busser-0.6.2.gem ( 62%)I, [2014-09-08T20:11:34.576051 #1965]  INFO -- default-centos-65: Fetching: busser-0.6.2.gem ( 77%)Fetching: busser-0.6.2.gem (100%)Fetching: busser-0.6.2.gem (100%)
+I, [2014-09-08T20:11:34.596712 #1965]  INFO -- default-centos-65: Successfully installed thor-0.19.0
+I, [2014-09-08T20:11:34.596777 #1965]  INFO -- default-centos-65: Successfully installed busser-0.6.2
+I, [2014-09-08T20:11:34.596810 #1965]  INFO -- default-centos-65: 2 gems installed
+I, [2014-09-08T20:11:35.093485 #1965]  INFO -- default-centos-65: -----> Setting up Busser
+I, [2014-09-08T20:11:35.093579 #1965]  INFO -- default-centos-65: Creating BUSSER_ROOT in /tmp/busser
+I, [2014-09-08T20:11:35.093618 #1965]  INFO -- default-centos-65: Creating busser binstub
+I, [2014-09-08T20:11:39.453748 #1965]  INFO -- default-centos-65: Plugin serverspec installed (version 0.2.6)
+I, [2014-09-08T20:11:39.458762 #1965]  INFO -- default-centos-65: -----> Running postinstall for serverspec plugin
+I, [2014-09-08T20:12:17.438626 #1965]  INFO -- default-centos-65: Finished setting up <default-centos-65> (1m22.36s).
+I, [2014-09-08T20:12:17.438764 #1965]  INFO -- default-centos-65: -----> Verifying <default-centos-65>...
+I, [2014-09-08T20:12:18.091625 #1965]  INFO -- default-centos-65: Suite path directory /tmp/busser/suites does not exist, skipping.
+I, [2014-09-08T20:12:18.295767 #1965]  INFO -- default-centos-65: Uploading /tmp/busser/suites/serverspec/localhost/httpd_spec.rb (mode=0644)
+I, [2014-09-08T20:12:18.877500 #1965]  INFO -- default-centos-65: -----> Running serverspec test suite
+I, [2014-09-08T20:12:19.094410 #1965]  INFO -- default-centos-65: /opt/chef/embedded/bin/ruby -I/tmp/busser/suites/serverspec -S /opt/chef/embedded/bin/rspec /tmp/busser/suites/serverspec/localhost/httpd_spec.rb --color --format documentation
+I, [2014-09-08T20:12:19.358889 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:12:19.358984 #1965]  INFO -- default-centos-65: Package "httpd"
+I, [2014-09-08T20:12:19.625747 #1965]  INFO -- default-centos-65: [32m  should be installed[0m
+I, [2014-09-08T20:12:19.625897 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:12:19.625928 #1965]  INFO -- default-centos-65: Package "httpd-devel"
+I, [2014-09-08T20:12:19.658346 #1965]  INFO -- default-centos-65: [32m  should be installed[0m
+I, [2014-09-08T20:12:19.660210 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:12:19.660281 #1965]  INFO -- default-centos-65: Service "httpd"
+I, [2014-09-08T20:12:19.699753 #1965]  INFO -- default-centos-65: [32m  should be enabled[0m
+I, [2014-09-08T20:12:19.722755 #1965]  INFO -- default-centos-65: [32m  should be running[0m
+I, [2014-09-08T20:12:19.724828 #1965]  INFO -- default-centos-65: 
+I, [2014-09-08T20:12:19.724904 #1965]  INFO -- default-centos-65: Finished in 0.36474 seconds
+I, [2014-09-08T20:12:19.724934 #1965]  INFO -- default-centos-65: [32m4 examples, 0 failures[0m
+I, [2014-09-08T20:12:19.764558 #1965]  INFO -- default-centos-65: Finished verifying <default-centos-65> (0m2.30s).
+I, [2014-09-08T20:12:19.764988 #1965]  INFO -- default-centos-65: -----> Destroying <default-centos-65>...
+I, [2014-09-08T20:12:21.595818 #1965]  INFO -- default-centos-65: [{
+I, [2014-09-08T20:12:21.595974 #1965]  INFO -- default-centos-65:     "Args": [
+I, [2014-09-08T20:12:21.596034 #1965]  INFO -- default-centos-65:  "-D",
+I, [2014-09-08T20:12:21.596080 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:12:21.596123 #1965]  INFO -- default-centos-65:  "UseDNS=no",
+I, [2014-09-08T20:12:21.596165 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:12:21.596205 #1965]  INFO -- default-centos-65:  "UsePAM=no",
+I, [2014-09-08T20:12:21.596245 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:12:21.596312 #1965]  INFO -- default-centos-65:  "UsePrivilegeSeparation=no",
+I, [2014-09-08T20:12:21.596356 #1965]  INFO -- default-centos-65:  "-o",
+I, [2014-09-08T20:12:21.596510 #1965]  INFO -- default-centos-65:  "PidFile=/tmp/sshd.pid"
+I, [2014-09-08T20:12:21.596551 #1965]  INFO -- default-centos-65:     ],
+I, [2014-09-08T20:12:21.596579 #1965]  INFO -- default-centos-65:     "Config": {
+I, [2014-09-08T20:12:21.596609 #1965]  INFO -- default-centos-65:  "AttachStderr": false,
+I, [2014-09-08T20:12:21.596675 #1965]  INFO -- default-centos-65:  "AttachStdin": false,
+I, [2014-09-08T20:12:21.596706 #1965]  INFO -- default-centos-65:  "AttachStdout": false,
+I, [2014-09-08T20:12:21.596735 #1965]  INFO -- default-centos-65:  "Cmd": [
+I, [2014-09-08T20:12:21.596767 #1965]  INFO -- default-centos-65:      "/usr/sbin/sshd",
+I, [2014-09-08T20:12:21.596796 #1965]  INFO -- default-centos-65:      "-D",
+I, [2014-09-08T20:12:21.596825 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:12:21.596854 #1965]  INFO -- default-centos-65:      "UseDNS=no",
+I, [2014-09-08T20:12:21.596929 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:12:21.596962 #1965]  INFO -- default-centos-65:      "UsePAM=no",
+I, [2014-09-08T20:12:21.596993 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:12:21.597024 #1965]  INFO -- default-centos-65:      "UsePrivilegeSeparation=no",
+I, [2014-09-08T20:12:21.597054 #1965]  INFO -- default-centos-65:      "-o",
+I, [2014-09-08T20:12:21.597085 #1965]  INFO -- default-centos-65:      "PidFile=/tmp/sshd.pid"
+I, [2014-09-08T20:12:21.597115 #1965]  INFO -- default-centos-65:  ],
+I, [2014-09-08T20:12:21.597151 #1965]  INFO -- default-centos-65:  "CpuShares": 0,
+I, [2014-09-08T20:12:21.597183 #1965]  INFO -- default-centos-65:  "Cpuset": "",
+I, [2014-09-08T20:12:21.597213 #1965]  INFO -- default-centos-65:  "Domainname": "",
+I, [2014-09-08T20:12:21.597266 #1965]  INFO -- default-centos-65:  "Entrypoint": null,
+I, [2014-09-08T20:12:21.597298 #1965]  INFO -- default-centos-65:  "Env": [
+I, [2014-09-08T20:12:21.597329 #1965]  INFO -- default-centos-65:      "HOME=/",
+I, [2014-09-08T20:12:21.597358 #1965]  INFO -- default-centos-65:      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+I, [2014-09-08T20:12:21.597364 #1965]  INFO -- default-centos-65:  ],
+I, [2014-09-08T20:12:21.597400 #1965]  INFO -- default-centos-65:  "ExposedPorts": {
+I, [2014-09-08T20:12:21.597431 #1965]  INFO -- default-centos-65:      "22/tcp": {}
+I, [2014-09-08T20:12:21.597462 #1965]  INFO -- default-centos-65:  },
+I, [2014-09-08T20:12:21.597492 #1965]  INFO -- default-centos-65:  "Hostname": "9eb8ae6b1f52",
+I, [2014-09-08T20:12:21.597529 #1965]  INFO -- default-centos-65:  "Image": "42cfaf3fde38",
+I, [2014-09-08T20:12:21.597561 #1965]  INFO -- default-centos-65:  "Memory": 0,
+I, [2014-09-08T20:12:21.597591 #1965]  INFO -- default-centos-65:  "MemorySwap": 0,
+I, [2014-09-08T20:12:21.597622 #1965]  INFO -- default-centos-65:  "NetworkDisabled": false,
+I, [2014-09-08T20:12:21.597653 #1965]  INFO -- default-centos-65:  "OnBuild": null,
+I, [2014-09-08T20:12:21.597683 #1965]  INFO -- default-centos-65:  "OpenStdin": false,
+I, [2014-09-08T20:12:21.597713 #1965]  INFO -- default-centos-65:  "PortSpecs": null,
+I, [2014-09-08T20:12:21.597765 #1965]  INFO -- default-centos-65:  "StdinOnce": false,
+I, [2014-09-08T20:12:21.597833 #1965]  INFO -- default-centos-65:  "Tty": false,
+I, [2014-09-08T20:12:21.597867 #1965]  INFO -- default-centos-65:  "User": "",
+I, [2014-09-08T20:12:21.597899 #1965]  INFO -- default-centos-65:  "Volumes": null,
+I, [2014-09-08T20:12:21.597930 #1965]  INFO -- default-centos-65:  "WorkingDir": ""
+I, [2014-09-08T20:12:21.597956 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:12:21.597982 #1965]  INFO -- default-centos-65:     "Created": "2014-09-08T11:07:28.034463864Z",
+I, [2014-09-08T20:12:21.598007 #1965]  INFO -- default-centos-65:     "Driver": "devicemapper",
+I, [2014-09-08T20:12:21.598033 #1965]  INFO -- default-centos-65:     "ExecDriver": "native-0.2",
+I, [2014-09-08T20:12:21.598058 #1965]  INFO -- default-centos-65:     "HostConfig": {
+I, [2014-09-08T20:12:21.598088 #1965]  INFO -- default-centos-65:  "Binds": null,
+I, [2014-09-08T20:12:21.598118 #1965]  INFO -- default-centos-65:  "ContainerIDFile": "",
+I, [2014-09-08T20:12:21.598154 #1965]  INFO -- default-centos-65:  "Dns": null,
+I, [2014-09-08T20:12:21.598186 #1965]  INFO -- default-centos-65:  "DnsSearch": null,
+I, [2014-09-08T20:12:21.598217 #1965]  INFO -- default-centos-65:  "Links": null,
+I, [2014-09-08T20:12:21.599213 #1965]  INFO -- default-centos-65:  "LxcConf": [],
+I, [2014-09-08T20:12:21.599305 #1965]  INFO -- default-centos-65:  "NetworkMode": "bridge",
+I, [2014-09-08T20:12:21.599339 #1965]  INFO -- default-centos-65:  "PortBindings": {
+I, [2014-09-08T20:12:21.599372 #1965]  INFO -- default-centos-65:      "22/tcp": [
+I, [2014-09-08T20:12:21.599405 #1965]  INFO -- default-centos-65:          {
+I, [2014-09-08T20:12:21.599489 #1965]  INFO -- default-centos-65:              "HostIp": "",
+I, [2014-09-08T20:12:21.599522 #1965]  INFO -- default-centos-65:              "HostPort": ""
+I, [2014-09-08T20:12:21.599553 #1965]  INFO -- default-centos-65:          }
+I, [2014-09-08T20:12:21.599584 #1965]  INFO -- default-centos-65:      ]
+I, [2014-09-08T20:12:21.599618 #1965]  INFO -- default-centos-65:  },
+I, [2014-09-08T20:12:21.599651 #1965]  INFO -- default-centos-65:  "Privileged": false,
+I, [2014-09-08T20:12:21.600190 #1965]  INFO -- default-centos-65:  "PublishAllPorts": false,
+I, [2014-09-08T20:12:21.600267 #1965]  INFO -- default-centos-65:  "VolumesFrom": null
+I, [2014-09-08T20:12:21.600353 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:12:21.600393 #1965]  INFO -- default-centos-65:     "HostnamePath": "/var/lib/docker/containers/9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09/hostname",
+I, [2014-09-08T20:12:21.600419 #1965]  INFO -- default-centos-65:     "HostsPath": "/var/lib/docker/containers/9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09/hosts",
+I, [2014-09-08T20:12:21.600444 #1965]  INFO -- default-centos-65:     "Id": "9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09",
+I, [2014-09-08T20:12:21.600468 #1965]  INFO -- default-centos-65:     "Image": "42cfaf3fde3817860cca794d0d8c47dc79131cbf4d58db127d3c6e76cad36135",
+I, [2014-09-08T20:12:21.600492 #1965]  INFO -- default-centos-65:     "MountLabel": "",
+I, [2014-09-08T20:12:21.600517 #1965]  INFO -- default-centos-65:     "Name": "/grave_lovelace",
+I, [2014-09-08T20:12:21.600541 #1965]  INFO -- default-centos-65:     "NetworkSettings": {
+I, [2014-09-08T20:12:21.600570 #1965]  INFO -- default-centos-65:  "Bridge": "docker0",
+I, [2014-09-08T20:12:21.600599 #1965]  INFO -- default-centos-65:  "Gateway": "172.17.42.1",
+I, [2014-09-08T20:12:21.600628 #1965]  INFO -- default-centos-65:  "IPAddress": "172.17.0.25",
+I, [2014-09-08T20:12:21.600694 #1965]  INFO -- default-centos-65:  "IPPrefixLen": 16,
+I, [2014-09-08T20:12:21.600785 #1965]  INFO -- default-centos-65:  "PortMapping": null,
+I, [2014-09-08T20:12:21.600818 #1965]  INFO -- default-centos-65:  "Ports": {
+I, [2014-09-08T20:12:21.600849 #1965]  INFO -- default-centos-65:      "22/tcp": [
+I, [2014-09-08T20:12:21.600880 #1965]  INFO -- default-centos-65:          {
+I, [2014-09-08T20:12:21.600912 #1965]  INFO -- default-centos-65:              "HostIp": "0.0.0.0",
+I, [2014-09-08T20:12:21.600943 #1965]  INFO -- default-centos-65:              "HostPort": "49169"
+I, [2014-09-08T20:12:21.600974 #1965]  INFO -- default-centos-65:          }
+I, [2014-09-08T20:12:21.601005 #1965]  INFO -- default-centos-65:      ]
+I, [2014-09-08T20:12:21.601035 #1965]  INFO -- default-centos-65:  }
+I, [2014-09-08T20:12:21.601061 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:12:21.601087 #1965]  INFO -- default-centos-65:     "Path": "/usr/sbin/sshd",
+I, [2014-09-08T20:12:21.601113 #1965]  INFO -- default-centos-65:     "ProcessLabel": "",
+I, [2014-09-08T20:12:21.601148 #1965]  INFO -- default-centos-65:     "ResolvConfPath": "/etc/resolv.conf",
+I, [2014-09-08T20:12:21.601184 #1965]  INFO -- default-centos-65:     "State": {
+I, [2014-09-08T20:12:21.601216 #1965]  INFO -- default-centos-65:  "ExitCode": 0,
+I, [2014-09-08T20:12:21.601251 #1965]  INFO -- default-centos-65:  "FinishedAt": "0001-01-01T00:00:00Z",
+I, [2014-09-08T20:12:21.601289 #1965]  INFO -- default-centos-65:  "Paused": false,
+I, [2014-09-08T20:12:21.601321 #1965]  INFO -- default-centos-65:  "Pid": 2088,
+I, [2014-09-08T20:12:21.601394 #1965]  INFO -- default-centos-65:  "Running": true,
+I, [2014-09-08T20:12:21.601427 #1965]  INFO -- default-centos-65:  "StartedAt": "2014-09-08T11:07:28.261332051Z"
+I, [2014-09-08T20:12:21.601454 #1965]  INFO -- default-centos-65:     },
+I, [2014-09-08T20:12:21.601480 #1965]  INFO -- default-centos-65:     "Volumes": {},
+I, [2014-09-08T20:12:21.601505 #1965]  INFO -- default-centos-65:     "VolumesRW": {}
+I, [2014-09-08T20:12:21.601530 #1965]  INFO -- default-centos-65: }
+I, [2014-09-08T20:12:21.601555 #1965]  INFO -- default-centos-65: ]
+I, [2014-09-08T20:12:21.964189 #1965]  INFO -- default-centos-65: 9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09
+I, [2014-09-08T20:12:26.062383 #1965]  INFO -- default-centos-65: 9eb8ae6b1f52b70b4e6aba62a2ff3570eb85727c9d51cd1a153cb9d907cb5e09
+I, [2014-09-08T20:12:26.074374 #1965]  INFO -- default-centos-65: Finished destroying <default-centos-65> (0m6.31s).
+I, [2014-09-08T20:12:26.074905 #1965]  INFO -- default-centos-65: Finished testing <default-centos-65> (5m0.13s).
