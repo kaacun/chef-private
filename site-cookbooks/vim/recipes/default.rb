@@ -23,7 +23,7 @@ package "python-devel" do
 end
 
 bash "install vim" do
-  cwd "/tmp"
+  cwd "/usr/local/src"
   code <<-EOC
     wget ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
     tar -xf vim-7.3.tar.bz2
