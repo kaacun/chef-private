@@ -6,6 +6,11 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+node['ruby']['dependencies'].each do |pkg|
+  package pkg do
+    action :install
+  end
+end
 bash "install ruby" do
   creates "/usr/local/bin/ruby"
   code <<-EOC
