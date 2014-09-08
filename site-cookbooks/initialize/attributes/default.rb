@@ -26,7 +26,7 @@ default['initialize']['repo']['epel']['epel_debuginfo']['enabled'] = 0
 default['initialize']['repo']['epel']['epel_source']['enabled'] = 0
 
 #remi
-default['initialize']['repo']['remi']['do_install'] = 0
+default['initialize']['repo']['remi']['do_install'] = 1
 default['initialize']['repo']['remi']['remi']['enabled'] = 0
 
 
