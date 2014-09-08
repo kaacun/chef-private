@@ -44,3 +44,6 @@ cookbook_file "/root/tmux-session.sh" do
 end
 cookbook_file "/etc/ld.so.conf.d/libevent.conf" do
 end
+template "/root/.tmux.conf" do
+  source "root/tmux.conf"
+end
