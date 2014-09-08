@@ -1,0 +1,46 @@
+
+#####################################################################
+# @copyright   Copyright (c) 2011-, AllAbout Inc
+# @author      k_ohhara
+# @create      2014/02/04 k_ohhara
+# @update      YYYY/MM/DD Name
+# @summary     rollback ENV
+# @usage       xxxxx aaa bbb
+#####################################################################
+
+# シェルのファイル名と同じログを自動生成
+EXEC_FULLPATH=`readlink -f $0`
+BASENAME=${EXEC_FULLPATH##*/}
+#BASENAME=`basename $0`
+BASEDIRNAME=${EXEC_FULLPATH%/*}
+LOG_DIRNAME=`echo $BASEDIRNAME |sed s%/usr/local/scripts%/var/log/usrlogs%g`
+LOG_FILE="$LOG_DIRNAME/$BASENAME.log"
+
+if [ ! -d $LOG_DIRNAME ]; then
+    mkdir $LOG_DIRNAME
+fi
+echo "#####start args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+#ここに追加したい処理を記述してください。
+ENV_NAME=$1
+ROLLBACK_NUM=$2
+TAIL_NUM=`expr $ROLLBACK_NUM + 1`
+PREV_ENV=`ls /app/ENV/ | grep $ENV_NAME | grep -v production | grep -v check | grep -v only1 | tail -$TAIL_NUM | head -1`
+echo $ENV_NAME
+echo $PREV_ENV
+
+sh /usr/local/scripts/release/jenkins/diff_ENV.sh ${ENV_NAME} ${PREV_ENV}
+cp -p /app/ENV/${PREV_ENV} /app/ENV/${ENV_NAME}
+
+if [ ! -f "/usr/local/scripts/release/jenkins/server_list.txt" ]; then
+   echo "########################################"
+   echo "Error : server_list not found."
+   echo "########################################"
+   exit 1
+fi
+server_list=(`cat /usr/local/scripts/release/jenkins/server_list.txt`)
+
+for server in "${server_list[@]}"; do
+  scp -p /app/ENV/${ENV_NAME} ${server}:/app/ENV/
+done
+
+echo "#####end   args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1

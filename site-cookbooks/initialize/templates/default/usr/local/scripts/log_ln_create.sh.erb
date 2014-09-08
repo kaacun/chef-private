@@ -1,0 +1,48 @@
+#!/bin/sh
+
+#####################################################################
+# @copyright   Copyright (c) 2011-, AllAbout Inc
+# @author      n_miyasaka
+# @create      2011/11/11
+# @update      2011/11/11
+# @summary     zabbix監視用にログファイル作成（シンボリックリンク生成）
+#####################################################################
+
+#対象ディレクトリ指定
+logs=`find /app/* -maxdepth 1 -type d -prune | grep -v ENV`
+
+logfile="log-`date +%Y-%m-%d`<%= node['initialize']['applog']['ext'] %>"
+applog="<%= node['initialize']['applog']['name'] %>"
+
+for logfolder in $logs
+do
+    if [ ! -d $logfolder/<%= node['initialize']['applog']['directory'] %> ]
+    then
+        mkdir -p $logfolder/<%= node['initialize']['applog']['directory'] %>
+    fi
+
+    cd $logfolder/<%= node['initialize']['applog']['directory'] %>
+
+    rm -fr $applog
+
+    targetfile=`find 2> /dev/null *<%= node['initialize']['applog']['ext'] %> -maxdepth 1 | sort -r | head -n1`
+        
+    if [ ! -z $targetfile ]
+    then
+        ln -s $targetfile $applog
+
+        #シンボリックファイル名を取得
+        logname=`ls -ln $applog | sed 's/^[^>]*> //'`
+
+        #当日分のログファイル名とシンボリック先のファイル名が異なれば、当日分のログをシンボリックリンクする
+        if [ -e $logfile ] && [ $logfile != $logname ]
+        then
+            rm -f $applog
+            ln -s $logfile $applog
+            echo "ln $logfile "
+
+        fi
+    fi
+done
+
+

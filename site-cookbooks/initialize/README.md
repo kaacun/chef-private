@@ -1,9 +1,9 @@
-basic-configuration Cookbook
-============================
+initialize Cookbook
+==================
 TODO: Enter the cookbook description here.
 
 e.g.
-This cookbook makes your favorite breakfast sandwhich.
+This cookbook makes your favorite breakfast sandwich.
 
 Requirements
 ------------
@@ -11,14 +11,14 @@ TODO: List your cookbook requirements. Be sure to include any requirements this 
 
 e.g.
 #### packages
-- `toaster` - basic-configuration needs toaster to brown your bagel.
+- `toaster` - initialize needs toaster to brown your bagel.
 
 Attributes
 ----------
-TODO: List you cookbook attributes here.
+TODO: List your cookbook attributes here.
 
 e.g.
-#### basic-configuration::default
+#### initialize::default
 <table>
   <tr>
     <th>Key</th>
@@ -27,7 +27,7 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['basic-configuration']['bacon']</tt></td>
+    <td><tt>['initialize']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -36,17 +36,17 @@ e.g.
 
 Usage
 -----
-#### basic-configuration::default
+#### initialize::default
 TODO: Write usage instructions for each cookbook.
 
 e.g.
-Just include `basic-configuration` in your node's `run_list`:
+Just include `initialize` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[basic-configuration]"
+    "recipe[initialize]"
   ]
 }
 ```
@@ -58,7 +58,7 @@ TODO: (optional) If this is a public cookbook, detail the process for contributi
 e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
-3. Write you change
+3. Write your change
 4. Write tests for your change (if applicable)
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request using Github

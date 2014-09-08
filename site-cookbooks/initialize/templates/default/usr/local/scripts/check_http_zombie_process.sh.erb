@@ -1,0 +1,72 @@
+#!/bin/sh
+
+#####################################################################
+# @copyright   Copyright (c) 2011-, AllAbout Inc
+# @author      e_tei
+# @create      2013/04/08 e_tei
+# @update      2013/04/10 e_tei
+# @summary     httpのゾンビプロセスをチェックする
+# @usage       チェル名
+#####################################################################
+
+# シェルのファイル名と同じログを自動生成
+EXEC_FULLPATH=`readlink -f $0`
+BASENAME=${EXEC_FULLPATH##*/}
+#BASENAME=`basename $0`
+BASEDIRNAME=${EXEC_FULLPATH%/*}
+LOG_DIRNAME=`echo $BASEDIRNAME |sed s%/usr/local/scripts%/var/log/usrlogs%g`
+LOG_FILE="$LOG_DIRNAME/$BASENAME.log"
+
+if [ ! -d $LOG_DIRNAME ]; then
+    mkdir $LOG_DIRNAME
+fi
+echo "#####start args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+#ここに追加したい処理を記述してください。
+
+ZOMBIE_PROCESS="[httpd] <defunct>"
+HOSTNAME=`hostname`
+result=0
+
+TO_ADDRESS="system_trouble+http_zombie_process@corp.allabout.co.jp"
+FROM_ADDRESS="system+${HOSTNAME}@corp.allabout.co.jp"
+SUBJECT_CRI="httpゾンビプロセスが検知いたしました"
+
+# メール送信メソット
+sendMail() {
+    from=$1
+    to=$2
+    inputEncoding="utf-8"
+    outputEncoding="iso-2022-jp"
+    subjectHead="=?${outputEncoding}?B?"
+    subjectBody="`echo "$3" | iconv -f $inputEncoding -t $outputEncoding | base64 | tr -d '\n'`"
+    subjectTail="?="
+    subject="$subjectHead$subjectBody$subjectTail"
+    contents="`echo -e $4 | iconv -f $inputEncoding -t $outputEncoding`"
+    echo "$contents" | mail -s "$subject" "$to" -- -f "$from"
+    return $?
+}
+
+# ゾンビプロセスをチェックする
+for p in $(ps aux | grep http | awk '{print $8}');do
+    if [[ "${p}" =~ "Z" ]];then
+        let result="${result}+1"
+    fi
+done
+
+if [ $result -ne 0 ];then
+    echo "ゾンビプロセスがあります。"
+    # アラートメールを送ります
+    contents="システム部担当者様\n\n今現在、${HOSTNAME}のhttpのゾンビプロセスを検知いたしました。\nプロセスをkillして、\napacheを再起動いたします。\n\nご確認ください。"
+    sendMail ${FROM_ADDRESS} ${TO_ADDRESS} ${SUBJECT_CRI} ${contents}
+
+    # プロセスをkillする
+    for f in $(ps axu |grep http |awk '{print $2}'); do
+        echo $f
+        kill -KILL $f
+    done
+
+    # apache再起動
+    /etc/init.d/httpd restart
+fi
+
+echo "#####end   args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1

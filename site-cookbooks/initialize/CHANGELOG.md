@@ -1,10 +1,11 @@
-# CHANGELOG for basic-configuration
+initialize CHANGELOG
+===================
 
-This file is used to list changes made in each version of basic-configuration.
+This file is used to list changes made in each version of the initialize cookbook.
 
-## 0.1.0:
-
-* Initial release of basic-configuration
+0.1.0
+-----
+- [your_name] - Initial release of initialize
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

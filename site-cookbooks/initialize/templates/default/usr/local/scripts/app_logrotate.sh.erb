@@ -1,0 +1,43 @@
+#!/bin/sh
+
+#####################################################################
+# @author      e_tei
+# @copyright   Copyright (c) 2011-, AllAbout Inc
+# @create      2012/05/10
+# @update      2012/06/22 find条件変更 
+# @summary     各アプリのテンポラリログのログローテーション
+#####################################################################
+
+# シェルのファイル名と同じログを自動生成
+BASENAME=`basename $0`
+BASEDIRNAME=`dirname $0`
+LOG_DIRNAME=`echo $BASEDIRNAME |sed s%/usr/local/scripts%/var/log/usrlogs%g`
+LOG_FILE="$LOG_DIRNAME/$BASENAME.log"
+
+echo "#####start logrotate `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+
+#6ヶ月以前のテンポラリログは削除する
+for i in `ls /app/`
+do
+    if [ -d /app/$i/<%= node['initialize']['applog']['directory'] %>/ ] && [ `ls 2> /dev/null /app/$i/<%= node['initialize']['applog']['directory'] %>/log-*.tar.gz|wc -l` -gt 0 ]
+    then
+        for j in `find /app/$i/<%= node['initialize']['applog']['directory'] %>/log-*.tar.gz -type f -mtime +180`
+        do
+            rm -f $j
+        done
+    fi
+done
+
+#直近1ヶ月後のテンポラリログは圧縮する（tar.gz）
+for i in `ls /app/`
+do
+    if [ -d /app/$i/<%= node['initialize']['applog']['directory'] %>/ ] && [ `ls 2> /dev/null /app/$i/<%= node['initialize']['applog']['directory'] %>/log-*<%= node['initialize']['applog']['ext'] %>|wc -l` -gt 0 ]
+    then
+        for k in `find /app/$i/<%= node['initialize']['applog']['directory'] %>/log-*<%= node['initialize']['applog']['ext'] %> -type f -mtime +30`
+        do
+            cd /app/$i/<%= node['initialize']['applog']['directory'] %>
+            tar zcfP $k.tar.gz $k
+            rm -f $k
+        done
+    fi
+done

@@ -1,0 +1,35 @@
+
+#####################################################################
+# @copyright   Copyright (c) 2011-, AllAbout Inc
+# @author      k_ohhara
+# @create      2014/02/04 k_ohhara
+# @update      YYYY/MM/DD Name
+# @summary     check diff of rollback ENV
+# @usage       xxxxx aaa bbb
+#####################################################################
+
+# シェルのファイル名と同じログを自動生成
+EXEC_FULLPATH=`readlink -f $0`
+BASENAME=${EXEC_FULLPATH##*/}
+#BASENAME=`basename $0`
+BASEDIRNAME=${EXEC_FULLPATH%/*}
+LOG_DIRNAME=`echo $BASEDIRNAME |sed s%/usr/local/scripts%/var/log/usrlogs%g`
+LOG_FILE="$LOG_DIRNAME/$BASENAME.log"
+
+if [ ! -d $LOG_DIRNAME ]; then
+    mkdir $LOG_DIRNAME
+fi
+echo "#####start args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+#ここに追加したい処理を記述してください。
+APP_NAME=$1
+ROLLBACK_NUM=$2
+TAIL_NUM=`expr $ROLLBACK_NUM + 1`
+PREV_ENV=`ls /app/ENV/ | grep $APP_NAME | grep -v production | grep -v check | grep -v only1 | tail -$TAIL_NUM | head -1`
+echo $APP_NAME
+echo $PREV_ENV
+
+sh /usr/local/scripts/release/jenkins/diff_ENV.sh ${APP_NAME} ${PREV_ENV}
+echo ENVを切り戻します。diffを確認して下さい。
+echo 問題なければrollback_ENV_pipelineから反映して下さい。
+
+echo "#####end   args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1

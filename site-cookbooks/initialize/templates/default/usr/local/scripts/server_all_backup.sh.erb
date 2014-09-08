@@ -1,0 +1,44 @@
+#!/bin/sh
+
+#####################################################################
+# @copyright   Copyright (c) 2011-, AllAbout Inc
+# @author      k_hara
+# @create      2012/05/28 k_hara
+# @update      YYYY/MM/DD Name
+# @summary     サーバの設定ファイルなどバックアップ
+# @usage       server_all_backup.sh
+#####################################################################
+
+# シェルのファイル名と同じログを自動生成
+EXEC_FULLPATH=`readlink -f $0`
+BASENAME=${EXEC_FULLPATH##*/}
+#BASENAME=`basename $0`
+BASEDIRNAME=${EXEC_FULLPATH%/*}
+LOG_DIRNAME=`echo $BASEDIRNAME |sed s%/usr/local/scripts%/var/log/usrlogs%g`
+LOG_FILE="$LOG_DIRNAME/$BASENAME.log"
+
+if [ ! -d $LOG_DIRNAME ]; then
+    mkdir $LOG_DIRNAME
+fi
+echo "#####start args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+#ここに追加したい処理を記述してください。
+
+LANG=UTF-8
+
+NOW=`date +%Y%m%d`
+HOST_NAME=`hostname`
+# バックアップ先サーバ
+BackupServer=<%= node['initialize']['cron']['backup_server']['name'] %>
+# バックアップ先ディレクトリ
+BackupDir=/Logs/aalog02_Logs/config_script_backup/$HOST_NAME
+# バックアップ対象リスト
+BackupList=/usr/local/scripts/backup_directory.list
+
+ssh root@$BackupServer "[ -d $BackupDir ] || mkdir $BackupDir "
+
+tar zcfOP - --files-from $BackupList | ssh $BackupServer "cat > $BackupDir/server_all_$NOW.tar.gz"
+
+#7日前のバックアップファイルだけ残す
+ssh root@$BackupServer "sh /usr/local/scripts/delete_backup_file.sh $HOST_NAME"
+
+echo "#####end   args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1

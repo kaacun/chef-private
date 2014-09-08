@@ -1,0 +1,65 @@
+
+#####################################################################
+# @copyright   Copyright (c) 2011-, AllAbout Inc
+# @author      Name
+# @create      YYYY/MM/DD Name
+# @update      YYYY/MM/DD Name
+# @summary     xxxxxxxxxxxx
+# @usage       xxxxx aaa bbb
+#####################################################################
+
+# シェルのファイル名と同じログを自動生成
+EXEC_FULLPATH=`readlink -f $0`
+BASENAME=${EXEC_FULLPATH##*/}
+#BASENAME=`basename $0`
+BASEDIRNAME=${EXEC_FULLPATH%/*}
+LOG_DIRNAME=`echo $BASEDIRNAME |sed s%/usr/local/scripts%/var/log/usrlogs%g`
+LOG_FILE="$LOG_DIRNAME/$BASENAME.log"
+
+if [ ! -d $LOG_DIRNAME ]; then
+    mkdir $LOG_DIRNAME
+fi
+echo "#####start args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+#ここに追加したい処理を記述してください。
+
+log_dir=`ls /AccessLog.local/`
+echo Info: AccessLog: $log_dir
+
+tarfile=$1
+
+if [ "" == $tarfile ]; then
+   echo "########################################"
+   echo "command : $0 <tarfile in /app.backup >"
+   echo "########################################"
+   exit 1
+fi
+if [ ! -f "/app.backup/$tarfile" ]; then
+   echo "########################################"
+   echo "Error : Tar file : $tarfile not found."
+   echo "########################################"
+   exit 1
+fi
+
+if [ ! -f "/usr/local/scripts/release/jenkins/server_list.txt" ]; then
+   echo "########################################"
+   echo "Error : server_list not found."
+   echo "########################################"
+   exit 1
+fi
+server_list=(`cat /usr/local/scripts/release/jenkins/server_list.txt`)
+for server in "${server_list[@]}"; do
+   ssh  ${server}  "[ -f /app/ ] ||  mkdir -p /app/ "
+   ssh  ${server}  "[ -f /app.backup/ ] ||  mkdir -p /app.backup/ "
+   scp -p /app.backup/$tarfile   ${server}:/app.backup/
+   ssh  ${server}  "( cd /app/ ; tar xvzf /app.backup/$tarfile || echo error ignoring )"
+   ssh ${server} /etc/init.d/httpd configtest
+   for d in $log_dir ; do
+       ssh ${server} " [ -d /AccessLog.local/$d ] || ( mkdir -p /AccessLog.local/$d ; chmod a+w /AccessLog.local/$d ) "
+   done
+   ssh ${server} /etc/init.d/httpd graceful
+   sleep 2
+done
+
+echo "#####end   args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+
+

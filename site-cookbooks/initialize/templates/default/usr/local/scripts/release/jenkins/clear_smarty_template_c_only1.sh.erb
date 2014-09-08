@@ -1,0 +1,40 @@
+
+#####################################################################
+# @copyright   Copyright (c) 2011-, AllAbout Inc
+# @author      Name
+# @create      YYYY/MM/DD Name
+# @update      YYYY/MM/DD Name
+# @summary     xxxxxxxxxxxx
+# @usage       xxxxx aaa bbb
+#####################################################################
+
+# シェルのファイル名と同じログを自動生成
+EXEC_FULLPATH=`readlink -f $0`
+BASENAME=${EXEC_FULLPATH##*/}
+#BASENAME=`basename $0`
+BASEDIRNAME=${EXEC_FULLPATH%/*}
+LOG_DIRNAME=`echo $BASEDIRNAME |sed s%/usr/local/scripts%/var/log/usrlogs%g`
+LOG_FILE="$LOG_DIRNAME/$BASENAME.log"
+
+if [ ! -d $LOG_DIRNAME ]; then
+    mkdir $LOG_DIRNAME
+fi
+echo "#####start args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+#ここに追加したい処理を記述してください。
+
+target_dir=$1
+
+echo test:  /app/${target_dir}/temporary/templates_c/*.php
+
+if [ ! -d /app/${target_dir}/temporary/templates_c ]; then
+  echo "/app/${target_dir}/temporary/templates_c not found"
+  exit 0;
+fi
+sleep 10
+
+echo "info: clearing /app/${target_dir}/temporary/templates_c/*.tpl.php"
+rm -f /app/${target_dir}/temporary/templates_c/*
+ls -l /app/${target_dir}/temporary/templates_c/
+
+echo "#####end   args=$@ `date '+%Y/%m/%d %T'`#####" >> $LOG_FILE 2>&1
+
