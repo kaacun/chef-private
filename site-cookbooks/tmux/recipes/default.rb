@@ -9,7 +9,7 @@
 bash "install libevent" do
   cwd "/tmp"
   code <<-EOC
-    wget https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz
+    curl -L https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz -o libevent-2.0.21-stable.tar.gz
     tar xvzf libevent-2.0.21-stable.tar.gz
     cd libevent-2.0.21-stable
     ./configure
