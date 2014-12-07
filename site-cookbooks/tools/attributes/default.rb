@@ -15,5 +15,6 @@ default['tools']['packages'] = [
   'iftop',
   'net-snmp-utils',
   'sysstat',
-  'tree'
+  'tree',
+  'gcc'
 ]
