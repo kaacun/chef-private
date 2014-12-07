@@ -1,0 +1,13 @@
+{
+  "name": "nodejs",
+  "json_class": "Chef::Role",
+  "run_list": [
+    "recipe[initialize]",
+    "recipe[git]",
+    "recipe[tools]",
+    "recipe[vim]",
+    "recipe[vim::neobundle]",
+    "recipe[tmux]",
+    "recipe[nodejs]"
+  ]
+}
